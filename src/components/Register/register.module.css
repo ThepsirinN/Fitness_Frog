@@ -1,0 +1,164 @@
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400 !important;
+  font-size: 62.5%;
+}
+
+:root {
+  --red: #ed2938;
+  --orange: #ff8c01;
+  --black: #000000;
+  --tan: #f0ebcc;
+}
+
+.img-bg {
+  position: absolute;
+  min-width: 100vw;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -11;
+  background-color: var(--black) !important;
+  background-image: url("./img/bg-logo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.opa {
+  position: absolute;
+  z-index: -10;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+/* register header */
+.register-logo-header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  font-size: 3rem;
+  top: 3rem;
+  left: 4rem;
+  color: var(--orange);
+}
+
+/* register-container */
+.register-container {
+  position: relative;
+  top: 6rem;
+  width: 80vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register-title {
+  background-color: var(--orange);
+  width: 60rem;
+  height: 10rem;
+  margin-bottom: 6.4rem;
+}
+
+.register-title h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6.4rem;
+  padding: 0.8rem;
+  font-weight: 700;
+}
+
+/* register-form section */
+.register-Form {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-group{
+    position: relative;
+}
+
+.form-group .iconShow {
+  display: flex;
+  position:absolute;
+  left: .6rem;
+  top:1.4rem;
+}
+
+.form-group input {
+  font-size: 2rem;
+  height: 5.5rem;
+  width: 27vw;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding-left: 3.2rem;
+  margin-bottom: 3rem;
+  border: 0;
+  border-bottom: #ffffff solid 0.2rem;
+  color: #ffffff;
+  caret-color: #ffffff;
+}
+
+.form-group input::placeholder {
+  font-size: 2.4rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* register-button section */
+.register-button {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin: 4rem 0 0 0;
+}
+.register-button button {
+  width: 18rem;
+  min-height: 5rem;
+  margin: 0 auto;
+  border: 0;
+}
+
+.register-button #btn-register-id {
+  font-size: 3.2rem;
+  background-color: var(--tan);
+  color: #000000;
+}
+
+/* Responsive zone */
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+  .img-bg {
+    background-image: url("./img/bg-mobile.jpg");
+  }
+
+  .register-logo-header{
+    display: none;
+  }
+
+  .register-container {
+    top: 2rem;
+    width: 100vw;
+  }
+
+  .register-title {
+    width: 100vw;
+    height: 10rem;
+    margin-bottom: 6.4rem;
+  }
+
+  .form-group input{
+    width: 64vw;
+  }
+
+  .form-group input::placeholder {
+    font-size: 1.6rem;
+  }
+}

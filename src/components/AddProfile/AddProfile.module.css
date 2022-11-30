@@ -1,0 +1,218 @@
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 62.5%;
+}
+
+:root {
+  --red: #ed2938;
+  --orange: #ff8c01;
+  --black: #000000;
+  --white: #ffffff;
+  --lime: #a2cd72;
+}
+
+html, body {
+    height: 100%;
+}
+
+.img-bg {
+  position: absolute;
+  min-width: 100vw;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -11;
+  background-color: var(--black) !important;
+  height: 100vh;
+}
+
+.add-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 12rem;
+}
+
+.add-profile h1 {
+  position: absolute;
+  background-color: var(--orange);
+  font-size: 6.4rem;
+  font-weight: 700;
+  padding: 0 3.2rem;
+  top: 0;
+  left: 0;
+}
+
+/* picture */
+.pic-add {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.pic-add img {
+  border-radius: 10rem;
+  width: 12rem;
+  height: 12rem;
+}
+
+.pic-add button {
+  font-size: 1.6rem;
+  background-color: var(--white);
+  border-radius: 2rem;
+  padding: 0.8rem;
+}
+
+/* Add user profile form */
+.user-detail {
+  display: grid;
+  column-gap: 6.4rem;
+  row-gap: 1.6rem;
+  margin-top: 1.6rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.form-group input,
+.form-group select {
+  font-size: 2rem;
+  height: 5.5rem;
+  width: 40rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding-left: 3.2rem;
+  margin-bottom: 2rem;
+  border: 0;
+  border-bottom: #ffffff solid 0.2rem;
+  color: #ffffff;
+  caret-color: #ffffff;
+}
+
+.form-group input[type="date"] {
+  color-scheme: dark;
+  padding-right: 1.6rem;
+}
+
+.form-group select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 2rem center;
+  background-size: 1em;
+}
+
+.form-group option {
+  color: var(--black);
+}
+
+.form-group label {
+  font-size: 2.2rem;
+  color: var(--orange);
+  margin-bottom: 0.8rem;
+}
+
+.form-group .icon {
+  position: absolute;
+  top: 5.6rem;
+  left: 0.6rem;
+  font-size: 2rem;
+}
+
+.btn-sub {
+  display: grid;
+  grid-column: 1/3;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-sub .save-btn {
+  background-color: var(--lime);
+  color: var(--black);
+  font-size: 4.8rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/* Responsive zone */
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+
+  .add-profile {
+    top: 2rem;
+    background-color: var(--black);
+  }
+
+  .add-profile h1 {
+    position: relative;
+    width: 100vw;
+    font-size: 4rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  /* picture */
+  .pic-add {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .pic-add img {
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .pic-add button {
+    font-size: 1.2rem;
+    font-weight: 700;
+    background-color: var(--white);
+    border-radius: 2rem;
+    padding: 0.8rem;
+  }
+
+  /* Add user profile form */
+  .user-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 2.4rem;
+    margin-top: 1.6rem;
+  }
+
+  .form-group input,
+  .form-group select {
+    font-size: 1.4rem;
+    height: 3rem;
+    width: 80vw;
+    background-color: rgba(255, 255, 255, 0.15);
+    padding-left: 3.2rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .form-group label {
+    font-size: 1.6rem;
+  }
+
+  .form-group .icon {
+    top: 3.6rem;
+    left: 0.6rem;
+    font-size: 1.6rem;
+  }
+
+  .btn-sub .save-btn {
+    font-size: 1.6rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+    margin-bottom: 2rem;
+  }
+}

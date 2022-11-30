@@ -1,0 +1,321 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+    font-family: 'Roboto';
+} 
+
+/*navbar start*/
+.AboutUs{
+    background-color: black;
+    min-height: 100vh;
+}
+
+.AboutUs-Bg-img-opacity{
+    position: absolute;
+    opacity: 20%;
+    width: 100%;
+    bottom: 0
+}
+
+.AboutUs-Nav{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 25px;
+}
+
+.AboutUs-Nav .AboutUs-Nav-left{
+    display: flex;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.AboutUs-Nav .AboutUs-Nav-left .AboutUs-logo{
+    display: flex;
+    width: 50px;
+    margin-right: 8px;
+}
+
+.AboutUs-Nav .AboutUs-Nav-left .AboutUs-logo-p{
+    display: flex;
+    color: #FF8c01;
+    font-size: 21px;
+    font-weight:500;
+    font-family: 'Roboto';
+}
+
+.AboutUs-Nav .AboutUs-Nav-right{
+    display: flex;
+    margin-right: 30px;
+    align-items: center;
+    z-index: 10;
+}
+
+.AboutUs-Home{
+    color:#fff;
+    margin-right: 50px;
+    font-family: 'Roboto';
+    cursor: pointer;
+}
+
+/*navbar end*/
+
+/*landing left start*/
+    
+.AboutUs-Container{
+    width:auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.AboutUs-Container-left{
+    width: 55%;
+    margin-bottom: 20px;
+    margin-left: 60px;
+}
+
+.AboutUs-Container-left .AboutUs-Container-left-AoutUs{
+    justify-content: center;
+    align-items:center;
+    text-align: center;
+    color:white;
+    font-size: 50px;
+    margin-top: 50px;
+}
+
+.AboutUs-Box{
+    background-color: #fff;
+    width: 55%;
+    margin-left: 60px;
+    border-radius: 10px;
+}
+
+.AboutUs-Text{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.AboutUs-Text .AboutUs-Text-p{
+    padding: 30px 50px 0px 50px;
+    color:black;
+    font-size: 18px;
+    line-height: 35px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.AboutUs-Text .AboutUs-Text-StartYour{
+    margin-top: 40px;
+    font-size:40px;
+    color:black;
+    font-weight: 900;
+    font-family: 'Roboto';
+}
+
+.AboutUs-Text .AboutUs-Text-Workout{
+    margin-top: 10px;
+    color:#FF8c01;
+    font-size:19px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    font-family: 'Roboto';
+}
+
+.AboutUs-Button{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.AboutUs-Button .AboutUs-Join{
+    width: 30%;
+    padding: 15px 20px;
+    text-align: center;
+    font-weight:900;
+    border-radius: 3px;
+    font-family: 'Roboto';
+}
+
+.AboutUs-Join{
+    position: relative;
+    background-color:#FF8c01;
+    color:black;
+    font-size:19px;
+    border: none;
+}
+
+.AboutUs-Join:hover {
+    cursor: pointer;
+    background-color: #C62C2C;
+    color: #fff;
+}
+
+/*landing left end*/
+
+/*landing right start*/
+
+.AboutUs-Container .AboutUs-Landing-right{
+    width: 45%;
+}
+
+.AboutUs-Container .AboutUs-Landing-right .AboutUs-Images{
+    width: 40%;
+}
+
+.AboutUs-Container .AboutUs-Landing-right .AboutUs-Images .AboutUs-Shape{
+    height: 80%;
+    position: absolute;
+    bottom: 0;
+    left: 60%;
+}
+
+.AboutUs-Container .AboutUs-Landing-right .AboutUs-Images .AboutUs-Woman{
+    height: 90%;
+    position: absolute;
+    bottom: 0;
+    left: 55%;
+}
+
+/*landing right end*/
+
+/********************************************************************************************************/
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+
+    /*navbar start*/
+ .AboutUs{
+     height: 100%;
+ }
+ 
+ .AboutUs-Bg-img-opacity{
+     visibility: hidden;
+ }
+ 
+ .AboutUs-Nav .AboutUs-Nav-left{
+     margin-left: 20px;
+ }
+ 
+ .AboutUs-Nav .AboutUs-Nav-left .AboutUs-logo{
+     width: 35px;
+     margin-right: 8px;
+ }
+ 
+ .AboutUs-Nav .AboutUs-Nav-left .AboutUs-logo-p{
+     font-size: 14px;
+ }
+ 
+ .AboutUs-Home{
+     margin-right: 0px;
+     font-size: 14px;
+ }
+ 
+ /*navbar end*/
+
+/*landing left start*/
+        
+.AboutUs-Container{
+    width: 100%;
+    height: 100%;
+}
+    
+.AboutUs-Container-left{
+    margin-top: 10px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    margin-left:auto;
+    margin-right:auto;
+    align-items:center;
+}
+    
+.AboutUs-Container-left .AboutUs-Container-left-AoutUs{
+    font-size:30px;
+    margin-bottom: 10px;
+}
+    
+.AboutUs-Box{
+    margin-left:8px;
+    margin-right:8px;
+    width: auto;
+    height: 100%;
+    align-items:center;
+    opacity: 90%;
+    border-radius: 5px;
+}
+    
+.AboutUs-Box .AboutUs-Text-p{
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+    padding-left: 15px;
+    padding-right: 8px;;
+    font-size: 16px;
+    line-height: 30px;
+}
+    
+.AboutUs-Box .AboutUs-Text .AboutUs-Text-StartYour{
+    display: flex;
+    justify-content: center;
+    font-size:35px;
+}
+
+.AboutUs-Box .AboutUs-Text .AboutUs-Text-Workout{
+    display: flex;
+    justify-content: center;
+    font-size:16px;
+    margin-bottom: 15px;
+}
+
+.AboutUs-Button .AboutUs-Join{
+    width: 70%;
+    border-radius: 8px;
+    font-weight: 600;
+}
+    
+/*landing left end*/
+
+/*landing right start*/
+.AboutUs-Landing-right{
+    width: 100%;
+    margin-top: 50px;
+}
+
+.AboutUs-Landing-right .AboutUs-Images{
+    display: flex;
+    justify-content: center;
+}
+/*landing right start*/
+
+.AboutUs-Container .AboutUs-Landing-right{
+    width: 100%;
+}
+
+.AboutUs-Container .AboutUs-Landing-right .AboutUs-Images{
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.AboutUs-Container .AboutUs-Landing-right .AboutUs-Images .AboutUs-Shape{
+    position: relative;
+    margin-left: 50%;
+    text-align: center;
+    width: 180%;
+}
+
+.AboutUs-Container .AboutUs-Landing-right .AboutUs-Images .AboutUs-Woman{
+    position: absolute;
+    z-index: 1;
+    margin: auto;
+    text-align: center;
+    height: 115%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/*landing right end*/
+
+}

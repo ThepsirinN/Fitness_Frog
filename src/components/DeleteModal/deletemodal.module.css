@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-height: 100vh;
+    background-color: black;
+}
+
+.del-container {
+    padding: 2.4rem;
+    background-color: #181818;
+}
+
+h2 {
+    text-align: center;
+    color: #fff;
+}
+
+.del-button {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2.4rem;
+}
+
+.submit, .cancle {
+    font-size: 1.6rem;
+    padding: 0 0.8rem;
+    cursor: pointer;
+    border-radius: 5rem;
+}
+
+.submit {
+    background-color: #c62c2c;
+    border: #c62c2c;
+    color: #fff;
+}
+
+.cancle {
+    background-color: #ff8c01;
+    border: #ff8c01;
+    color: #fff;
+}

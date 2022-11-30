@@ -1,0 +1,107 @@
+*, *::before, *::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --black : #000000;
+    --greydark: #181818;
+    --orange: #ff8c01;
+    --yellow: #eef221;
+    --darkred: #c62c2c;
+    --red: #ed2938;
+    --green: #54B435;
+    --green-light : #a2cd72;
+    --green-neon: #38E54D;
+    --white: #ffffff;
+}
+
+body {
+    background: url(./image/run.png) no-repeat center center fixed; 
+    background-size: cover;
+}
+
+.activity-container {
+    position: relative;
+    top: 6rem;
+}
+
+/*----------------- Topic : header ----------------*/
+.card-container{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 6.4rem 0;
+}
+
+.card_header {
+    display: flex;
+    flex-direction: column;
+}
+
+.card_header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card_header > h1 {
+    font-size: 6.4rem;
+    text-align: center;
+    margin: 6.4rem 0 0 0;
+    color: #ffffff;
+}
+
+
+/*----------------- Topic : filter ----------------*/
+
+/* .card_header_filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin: 1.6rem 3.2rem;
+}
+
+button {
+    border-radius: 2.4rem;
+    border: 0.1rem solid #ff8c01;
+    background: none;
+    cursor: pointer;
+    padding: 0 0.8rem;
+}
+
+button > img {
+    display: block;
+    width: 2.4rem;
+    height: 2.4rem;
+    max-height: 2.4rem;
+    margin-top: 1.2rem;
+}
+
+button > p {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-top: 0.8rem;
+} */
+
+@media screen and (min-width: 320px) and (max-width: 819px) {
+ 
+    .card-container{
+        display: flex;
+        text-align: center;
+        width: 100%;
+    }
+
+    .card_header > h1 {
+        font-size: 4.8rem;
+    }
+
+}

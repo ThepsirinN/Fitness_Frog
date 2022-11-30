@@ -1,0 +1,99 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    min-height: 100vh;
+    background-color: black;
+}
+
+.add-container {
+    border-radius: 0.5rem;
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-form {
+    padding: 1rem 2rem;
+
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 4rem;
+}
+
+.form-control {
+    position: relative;
+    border: none;
+    width: 100%;
+    background: none;
+    padding: 0.8rem 4rem;
+}
+
+.icon {
+    color: #fff;
+    position: absolute;
+    margin: 1rem 0.8rem;
+}
+
+input, select {
+    background-color: rgba(255, 255, 255, .15);
+    outline: none;
+    width: 30rem;
+    height: 3.2rem;
+    color: #fff;
+    padding-left: 2.4rem;
+}
+
+input::placeholder {
+    color: #fff;
+}
+
+input[type="datetime-local"] {
+    color-scheme: dark;
+}
+
+option:not(:focus) {
+    background-color: #000;
+}
+
+.button {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1.6rem 0;
+    padding: 0.8rem;
+}
+
+button {
+    padding: 0.4rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.btn-back,.btn-add {
+    border-radius: 5rem;
+    border: none;
+}
+
+.btn-back {
+    background-color: #ff8c01;
+    border-color: #ff8c01;
+    border: none;
+    color: #fff;
+}
+
+.btn-add {
+    background-color: #a2cd72;
+    border:#a2cd72;
+    border: none;
+}

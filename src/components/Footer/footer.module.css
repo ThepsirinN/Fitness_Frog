@@ -1,0 +1,145 @@
+.footer {
+    position: relative; 
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Poppins', sans-serif;
+    width: 100vw;
+    background-color: #181818;
+}
+
+/* Upper footer */
+.footer_info {
+    display: flex;
+    justify-content: center;
+    padding: 1.6rem 2.4rem;
+    /* min-height: 4.8rem; */
+}
+
+.footer_form {
+    display: flex;
+    align-items: center;
+    font-size: 1.6rem;
+    padding: 1.6rem 0;
+}
+
+.footer_form input {
+    display: block;
+    background: #fff;
+    border-radius: 0.8rem;
+    width: 100%;
+    padding: 0.4rem;
+}
+
+.footer_form input::placeholder {
+    color: #181818;
+    opacity: 0.5;
+    padding-left: 0.8rem;
+}
+
+
+.footer_follow {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+}
+
+.footer_follow_text {
+    font-size: 1.6rem;
+    color: #ffffff;
+    margin-left: 2.4rem;
+}
+
+.footer_follow_link {
+    display: flex;
+    padding: 0.8rem;
+    gap: 1.6rem;
+}
+
+.footer_follow_link > a > img {
+    /* display: inline-block; */
+    width: 3.2rem;
+    height: 3.2rem;
+    max-height: 3.2rem;
+    /* gap: 0.8rem; */
+}
+
+.footer_follow_link > a:hover {
+    cursor: pointer;
+}
+
+.footer > .footer_follow > ul.footer_follow_link > img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Bottom footer */
+.footer_bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #181818;
+}
+
+.footer_bottom > ul{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+}
+
+.footer_bottom_copyright {
+    font-size: 1.6rem;
+    text-align: center;
+    color: #ffffff;
+    margin-top: 1rem;
+    padding: 0rem 1rem;
+}
+
+.copyright--mobile {
+    display: none;
+}
+
+.footer_bottom_link {
+    display: flex;
+    font-size: 1.6rem;
+}
+
+.bottom_link {
+    background: none;
+    cursor: pointer;
+    color: #fff;
+    /* width: 100%; */
+    /* margin-top: 20px; */
+    border: none;
+    display: block;
+    padding: 1rem;
+    /* margin-bottom: 2rem; */
+    font-size: 1.6rem;
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+
+
+    .footer_info {
+        display: none;
+    }
+
+    .footer_bottom {
+        position: fixed;
+        bottom: 0;
+        width: 100vw;
+    }
+
+    .footer_bottom_copyright, .bottom_link {
+        display: none;
+    }
+
+    .copyright--mobile {
+        display: block;
+        background-color: #181818;
+        color: #ff8c01;
+        margin-top: 1.6rem;
+    }
+
+}

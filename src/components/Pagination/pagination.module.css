@@ -1,0 +1,108 @@
+.page-container {
+    position: relative;
+    height: 20rem;
+    margin-bottom: 7.2rem;
+}
+
+.pagination-container {
+    margin: 1.6rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.page_btn_number {
+    display: flex;
+    justify-content: center;
+    gap: 1.6rem;
+    padding: 2.4rem 0rem;
+}
+
+.page_btn_number button {
+    padding: 0.8rem 1.6rem;
+    font-size: 1.6rem;
+    background-color: #ff8c01;
+    text-align: center;
+    border-radius: 6.4rem;
+    cursor: pointer;
+    border: #fff;
+}
+
+.page_btn_back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page_btn_back button {
+    background-color: #ff8c01;
+    padding: 1.6rem 1.6rem;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 2.4rem;
+    border: #fff;
+}
+
+.page_btn_plus {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 5.6rem;
+    color: #38E54D;
+    font-size: 4.8rem;
+    cursor: pointer;
+}
+
+.page_btn_number button:hover {
+    background-color: #2192FF;
+    border: 0.1rem solid #fff;
+    color: #fff;
+}
+
+.page_btn_back button:hover {
+    background-color: #2192FF;
+    border: 0.1rem solid #fff;
+    color: #fff;
+}
+
+@media screen and (min-width: 320px) and (max-width: 479px) {
+
+    .page-container {
+        position: relative;
+        height: 25rem;
+        margin-bottom: 7.2rem;
+    }
+    
+    .page_btn_number {
+        display: flex;
+        justify-content: center;
+        gap: 0.8rem;
+        padding: 2.4rem 0rem;
+    }
+
+    .page_btn_number button {
+        padding: 0.8rem 1.6rem;
+        font-size: 1.2rem;
+        background-color: #ff8c01;
+        text-align: center;
+        border-radius: 6.4rem;
+        cursor: pointer;
+    }
+
+    .page_btn_back button {
+        background-color: #ff8c01;
+        padding: 0.8rem 0.8rem;
+        font-size: 1.6rem;
+        cursor: pointer;
+        border-radius: 2.4rem;
+        border: #fff;
+    }
+
+    .page_btn_plus {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 1.6rem;
+        padding-right: 2.4rem;
+        color: #38E54D;
+        font-size: 3.2rem;
+        cursor: pointer;
+    }
+}

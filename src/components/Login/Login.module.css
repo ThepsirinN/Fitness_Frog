@@ -1,14 +1,12 @@
-*{
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400 !important;
-    font-size: 62.5%;
-}
-
 :root{
     --red: #ED2938;
     --orange: #FF8C01;
     --black: #000000;
+}
+
+.Login{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400 !important;
 }
 
 .img-bg {
@@ -40,11 +38,15 @@
     position: fixed;
     display: flex;
     align-items: center;
-    font-size: 3rem;
     top: 3rem;
     left: 4rem;
     color: var(--orange);
 }
+
+.logo-header h3{
+    color: var(--orange);
+    font-size: 2.4rem;
+  }  
 
 
 /* login-container */

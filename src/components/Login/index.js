@@ -1,4 +1,5 @@
-import styles from "./login.module.css";
+import styles from "./Login.module.css";
+import { Link } from "react-router-dom";
 import logo from "./img/logo-fitness-fog.png";
 import { FaUser, FaLock } from "react-icons/fa";
 const Login = () => {
@@ -8,19 +9,26 @@ const Login = () => {
       <div className={styles["opa"]}></div>
 
       <header className={styles["logo-header"]}>
-        <img src={logo} width="63px" alt="fitness-frog logo" />
-        <h3>Fitness Frog</h3>
+        <Link to={"../"} style={{ textDecoration: "none" }}>
+          <img src={logo} width="63px" alt="fitness-frog logo" />
+        </Link>
+        <Link to={"../"} style={{ textDecoration: "none" }}>
+          <h3>Fitness Frog</h3>
+        </Link>
       </header>
       <main className={styles["login-container"]}>
         <section className={styles["login-header"]}>
           <h1 className="text-white">Fitness Frog</h1>
         </section>
-        <section className={styles["login-title"]}>
+        <section className={`text-white ${styles["login-title"]}`}>
           <h2>Login</h2>
         </section>
         <form className={styles["login-Form"]}>
           <div className={styles["form-group"]}>
-              <FaUser className={styles["iconForm"]} style={{ fontSize: "2rem", color: "#ffffffd9" }} />
+            <FaUser
+              className={styles["iconForm"]}
+              style={{ fontSize: "2rem", color: "#ffffffd9" }}
+            />
             <input
               type="text"
               name="username-login"
@@ -29,7 +37,10 @@ const Login = () => {
             />
           </div>
           <div className={styles["form-group"]}>
-              <FaLock className={styles["iconForm"]} style={{ fontSize: "2rem", color: "#ffffffd9" }} />
+            <FaLock
+              className={styles["iconForm"]}
+              style={{ fontSize: "2rem", color: "#ffffffd9" }}
+            />
             <input
               type="password"
               name="password-login"

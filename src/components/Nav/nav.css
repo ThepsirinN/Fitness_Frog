@@ -1,68 +1,61 @@
-* {
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-}
-
-body {
-    background-color: #000;
-}
-
 .navbar {
-    opacity: 0.8;
-    padding: 1rem 1rem;
-    width: 100%;
-    position: fixed;
+  opacity: 0.8;
+  padding: 1rem 1rem;
+  width: 100%;
+  position: fixed;
+  font-family: "Roboto", sans-serif;
 }
 
 .welcome {
-    padding-left: 1rem;
+  padding-left: 1rem;
+  font-family: 'Inter Tight', sans-serif;
 }
 
 .welcome h1 {
-    color: #fff;
-    font-size: 1.5rem;
+  color: #fff;
+  font-size: 3.2rem;
+  font-family: 'Inter Tight', sans-serif;
+}
+.welcome span {
+  font-size: 3.2rem;
 }
 
 .btnNav {
-    width: 7.5rem;
-    padding: 0.5rem;
-    margin: 0.1rem 1rem;
-    border-radius: 2rem !important;
-    font-size: 1rem !important;
+  font-family: 'Poppins', sans-serif;
+  padding: 1.2rem;
+  margin: 0.4rem 1.2rem;
+  border-radius: 2rem !important;
+  font-size: 2.4rem !important;
 }
 
 .menu-icon {
-    display: none;
+  display: none;
 }
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
+  /* ทำ hamburger menu */
+  .navbar {
+    opacity: 0.8;
+    display: flex;
+    align-content: space-between;
+    padding: 1rem 1rem;
+    width: 100vw;
+    position: fixed;
+  }
 
-    /* ทำ hamburger menu */
-    .navbar {
-        opacity: 0.8;
-        display: flex;
-        align-content: space-between;
-        padding: 1rem 1rem;
-        width: 100vw;
-        position: fixed;
-    }
+  .btn-mobile {
+    font-size: 16px;
+    padding: 20px;
+  }
 
-    .btn-mobile {
-        font-size: 16px;
-        padding: 20px;
-    }
+  .btnNav {
+    margin-bottom: 10px;
+  }
 
-    .btnNav {
-        margin-bottom: 10px;
-    }
-
-    .menu-icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-right: 1rem;
-    }
-
-
+  .menu-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 1rem;
+  }
 }

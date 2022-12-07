@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./register.module.css";
 import logo from "./img/logo-fitness-fog.png";
 import { FaUser, FaLock } from "react-icons/fa";
@@ -10,8 +11,12 @@ const Register = () => {
       <div className={styles["opa"]}></div>
 
       <header className={styles["register-logo-header"]}>
+      <Link to={"../"} style={{ textDecoration: "none" }}>
         <img src={logo} width="63px" alt="fitness-frog logo" />
+      </Link>
+      <Link to={"../"} style={{ textDecoration: "none" }}>
         <h3>Fitness Frog</h3>
+      </Link>
       </header>
 
       <main className={styles["register-container"]}>

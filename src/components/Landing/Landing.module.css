@@ -1,173 +1,175 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing:border-box;
-    font-family: 'Roboto';
-} 
-
 /*navbar start*/
-.Landing{
-    background-color: black;
-    min-height: 100vh;
+.Landing {
+  background-color: black;
+  font-family: "Roboto";
+  position: absolute;
+  width: 100vw;
+  min-height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -11;
+  background-image: url("./img/routines-sporten-gym-opbouwen-1-scaled.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.Landing-Bg-img-opacity{
-    position: absolute;
-    opacity: 20%;
-    width: 100%;
-    bottom: 0
+.Landing-Bg-img-opacity {
+  position: absolute;
+  z-index: -10;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
-.Landing-Nav{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding-top: 25px;
+.Landing-Nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 25px;
 }
 
-.Landing-Nav .Landing-Nav-left{
-    display: flex;
-    align-items: center;
-    margin-left: 50px;
+.Landing-Nav .Landing-Nav-left {
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
 }
 
-.Landing-Nav .Landing-Nav-left .Landing-logo{
-    display: flex;
-    width: 50px;
-    margin-right: 8px;
+.Landing-Nav .Landing-Nav-left .Landing-logo {
+  display: flex;
+  width: 50px;
+  margin-right: 8px;
 }
 
-.Landing-Nav .Landing-Nav-left .Landing-logo-p{
-    display: flex;
-    color: #FF8c01;
-    font-size: 21px;
-    font-weight:500;
-    font-family: 'Roboto';
+.Landing-Nav .Landing-Nav-left .Landing-logo-p {
+  display: flex;
+  color: #ff8c01;
+  font-size: 21px;
+  font-weight: 500;
+  font-family: "Roboto";
 }
 
-.Landing-Nav .Landing-Nav-right{
-    z-index: 10;
-    display: flex;
-    margin-right: 30px;
-    align-items: center;
-    cursor: pointer;
+.Landing-Nav .Landing-Nav-right {
+  z-index: 10;
+  display: flex;
+  margin-right: 30px;
+  align-items: center;
+  cursor: pointer;
 }
 
-.Landing-AboutUs{
-    color: white;
-    margin-right: 50px;
-    font-family: 'Roboto';
+.Landing-AboutUs {
+  color: white;
+  margin-right: 50px;
+  font-size: 24px;
+  font-family: "Roboto";
 }
-
 
 /*navbar end*/
 
 /*landing left start*/
 
-.Landing-Landing-left{
-    width: 60%;
-    margin-top: 12%;
+.Landing-Landing-left {
+  width: 60%;
+  margin-top: 12%;
 }
 
-.Landing-Text-StartYour{
-    position: relative;
-    text-align: center;
-    font-size:88px;
-    color:#fff;
-    font-weight: 900;
-    font-family: 'Roboto';
+.Landing-Text-StartYour {
+  position: relative;
+  text-align: center;
+  font-size: 88px;
+  color: #fff;
+  font-weight: 900;
+  font-family: "Roboto";
 }
 
-.Landing-Text-Workout{
-    position: relative;
-    text-align: center;
-    color:#FF8c01;
-    font-size:41px;
-    font-weight: 500;
-    font-family: 'Roboto';
-    margin-bottom: 30px;
+.Landing-Text-Workout {
+  position: relative;
+  text-align: center;
+  color: #ff8c01;
+  font-size: 41px;
+  font-weight: 500;
+  font-family: "Roboto";
+  margin-bottom: 30px;
 }
 
-.Landing-Button{
-    width: 100%;
-    flex-direction: column;
-    justify-content: center;
+.Landing-Button {
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.Landing-Button .Landing-Button1{
-    display: flex;
-    justify-content: center;
-    gap: 1%;
-    margin-bottom: 20px;
+.Landing-Button .Landing-Button1 {
+  display: flex;
+  justify-content: center;
+  gap: 1%;
+  margin-bottom: 20px;
 }
 
-.Landing-Login{
-    position: relative;
-    text-align: center;
-    background-color:#FF8c01;
-    color: black;
-    width: 27%;
-    padding: 15px 20px;
-    font-weight:900;
-    border-radius: 3px;
-    font-family: 'Roboto';
+.Landing-Login,
+.Landing-Register {
+  position: relative;
+  text-align: center;
+  width: 200px;
+  padding: 15px 20px;
+  font-weight: 900;
+  border-radius: 3px;
+  font-family: "Roboto";
+  font-size: 32px;
+}
+
+.Landing-Login {
+  background-color: #ff8c01;
+  color: black;
 }
 
 .Landing-Login:hover {
-    cursor: pointer;
-    background-color: #C62C2C;
-    color: #fff;
+  cursor: pointer;
+  background-color: #c62c2c;
+  color: #fff;
 }
-  
-.Landing-Register{
-    position: relative;
-    text-align: center;
-    background-color:#fff;
-    border-style:solid;
-    border-width: 2px;
-    border-color: #C62C2C;
-    color: #C62C2C;
-    width: 27%;
-    padding: 15px 20px;
-    font-weight:900;
-    border-radius: 3px;
-    font-family: 'Roboto';
+
+.Landing-Register {
+  background-color: #fff;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #c62c2c;
+  color: #c62c2c;
 }
 
 .Landing-Register:hover {
-    cursor: pointer;
-    background-color: #C62C2C;
-    color: #fff;
+  cursor: pointer;
+  background-color: #c62c2c;
+  color: #fff;
 }
 
 /*sign in with google - start*/
 
-.Landing-Login-with-google-btn{
-    display: flex;
-    justify-content: center;
+.Landing-Login-with-google-btn {
+  display: flex;
+  justify-content: center;
 }
 
-.Landing-Box-a{
-    position: relative;
-    display: flex;
-    justify-content: center;
-    width: 55%;
-    background-color: white;
-    border-radius: 3px;
-    padding: 20px 20px;
+.Landing-Box-a {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 55%;
+  background-color: white;
+  border-radius: 3px;
+  padding: 20px 20px;
 }
 
 .Landing-Box-a:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-
-.Landing-Box-p{
-    color:gray;
-    font-size: 16px;
-    font-weight:900;
-    font-family: 'Roboto';
-    margin-left: 10px;
+.Landing-Box-p {
+  color: gray;
+  font-size: 16px;
+  font-weight: 900;
+  font-family: "Roboto";
+  margin-left: 10px;
 }
 
 /*sign in with google - end*/
@@ -175,117 +177,110 @@
 
 /*landing right start*/
 
-.Landing-Landing-right{
-    width: 40%;
+.Landing-Landing-right {
+  width: 40%;
 }
 
-.Landing-Shape{
-    height: 80%;
-    position: absolute;
-    bottom: 0;
-    left: 55%;
+.Landing-Shape {
+  height: 80%;
+  position: absolute;
+  bottom: 0;
+  left: 55%;
 }
 
-.Landing-Man{
-    height: 100%;
-    position: absolute;
-    bottom: 0;
-    left: 55%;
+.Landing-Man {
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 55%;
 }
-
-
 
 /*landing right end*/
 
 /********************************************************************************************************/
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
-    
-   /*navbar start*/
-.Landing{
-    height: 100%;
-}
+  /*navbar start*/
+  .Landing {
+    height: 100vh;
+  }
 
-.Landing-Bg-img-opacity{
-    visibility: hidden;
-}
-
-.Landing-Nav .Landing-Nav-left{
+  .Landing-Nav .Landing-Nav-left {
     margin-left: 20px;
-}
+  }
 
-.Landing-Nav .Landing-Nav-left .Landing-logo{
+  .Landing-Nav .Landing-Nav-left .Landing-logo {
     width: 35px;
-}
+  }
 
-.Landing-Nav .Landing-Nav-left .Landing-logo-p{
+  .Landing-Nav .Landing-Nav-left .Landing-logo-p {
     font-size: 14px;
-}
+  }
 
-.Landing-AboutUs{
+  .Landing-AboutUs {
     margin-right: 0px;
     font-size: 14px;
-}
+  }
 
-/*navbar end*/
-    
- /*landing left start*/
+  /*navbar end*/
 
- .Landing-Container{
+  /*landing left start*/
+
+  .Landing-Container {
     width: 100%;
-}
+  }
 
-.Landing-Landing-left{
+  .Landing-Landing-left {
     width: 100%;
     display: flex;
     flex-direction: column;
     margin-top: 50px;
-    margin-left:auto;
-    margin-right:auto;
-    align-items:center;
-}
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+  }
 
-.Landing-Text-StartYour{
+  .Landing-Text-StartYour {
     display: flex;
     justify-content: center;
-    font-size:40px;
+    font-size: 40px;
     margin-bottom: 8px;
-}
+  }
 
-.Landing-Text-Workout{
+  .Landing-Text-Workout {
     display: flex;
     justify-content: center;
-    font-size:18px;
+    font-size: 18px;
     margin-bottom: 40px;
-}
+  }
 
-.Landing-Button{
+  .Landing-Button {
     display: flex;
-}
+  }
 
-.Landing-Button .Landing-Button1{
+  .Landing-Button .Landing-Button1 {
     flex-direction: column;
     align-items: center;
     gap: 3%;
     margin-bottom: 10px;
     width: 100%;
-}
+  }
 
-.Landing-Login{
-    width: 75%;
+  .Landing-Login {
+    width: 200px;
     margin-bottom: 10px;
-    font-size: 14px;
-}
-  
-.Landing-Register{
-    width: 75%;
-    font-size: 14px;
+    font-size: 20px;
+  }
+
+  .Landing-Register {
+    width: 200px;
+    font-size: 20px;
     margin-bottom: 50px;
-}
+  }
 
-/*sign in with google - start*/
+  /*sign in with google - start*/
 
-/* .Landing-Login-with-google-btn{
+  /* .Landing-Login-with-google-btn{
     width: 100%;
     margin-bottom: 50px;
 }
@@ -299,22 +294,22 @@
     font-size: 14px;
 } */
 
-/*sign in with google - end*/
-/*landing left end*/
+  /*sign in with google - end*/
+  /*landing left end*/
 
-/*landing right start*/
-.Landing-Landing-right{
+  /*landing right start*/
+  .Landing-Landing-right {
     width: 100%;
-}
+  }
 
-.Landing-Landing-right .Landing-Images{
+  .Landing-Landing-right .Landing-Images {
     display: flex;
     justify-content: center;
     position: fixed;
     bottom: 0;
-}
+  }
 
-.Landing-Landing-right .Landing-Images .Landing-Shape{
+  .Landing-Landing-right .Landing-Images .Landing-Shape {
     position: relative;
     z-index: 1;
     margin: auto;
@@ -323,9 +318,9 @@
     left: 0;
     right: 0;
     bottom: 0;
-}
+  }
 
-.Landing-Landing-right .Landing-Images .Landing-Man{
+  .Landing-Landing-right .Landing-Images .Landing-Man {
     position: absolute;
     z-index: 1;
     margin: auto;
@@ -334,8 +329,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-}
+  }
 
-/*landing right end*/
-
+  /*landing right end*/
 }

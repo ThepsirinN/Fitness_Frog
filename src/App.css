@@ -8,3 +8,14 @@
 body {
   background-color: #000;
 }
+.swal2-icon {
+  zoom : 1.5;
+}
+
+.swal2-x-mark {
+  zoom : 2.6;
+}
+
+.swal2-container {
+  zoom: 2.5;
+}

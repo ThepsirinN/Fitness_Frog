@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
+import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
 import styles from "./register.module.css";
 import logo from "./img/logo-fitness-fog.png";
@@ -13,31 +14,41 @@ const Register = () => {
   const [pass, setPass] = useState("");
   const [confirmPass, setConfirmPass] = useState("");
   // const [errorObj, setErrorObj] = useState({});
+  const cookies = new Cookies();
 
   const register = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:4000/user/createUser", {
-        username: username,
-        email: email,
-        pass: pass,
-        confirmPass: confirmPass,
-      });
-      if(response){
+      const response = await axios.post(
+        "http://localhost:4000/user/createUser",
+        {
+          username: username,
+          email: email,
+          pass: pass,
+          confirmPass: confirmPass,
+        }
+      );
+      if (response) {
+        cookies.set("refreshToken", response.data.refreshToken.key , {path:"/", expires:new Date(Date.now()+response.data.refreshToken.exp)})
+        cookies.set("user", username , {path:"/", expires:new Date(Date.now()+response.data.refreshToken.exp)})
         Swal.fire({
           title: `${response.data.msg}!`,
-          icon: 'success',
-          confirmButtonText: 'OK',
-        })
+          icon: "success",
+          confirmButtonText: "OK",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            return window.location.assign("./add-profile");
+          }
+        });
       }
     } catch (err) {
       if (err.response.status === 400) {
         Swal.fire({
           title: `Bad Request!`,
           text: `${err.response.data.msg}`,
-          icon: 'error',
-          confirmButtonText: 'OK',
-        })
+          icon: "error",
+          confirmButtonText: "OK",
+        });
       }
     }
   };

@@ -20,7 +20,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:4000/user/createUser",
+        "http://localhost:4000/api/v1/user/createUser",
         {
           username: username,
           email: email,

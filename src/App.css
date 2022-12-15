@@ -1,3 +1,4 @@
+
 * {
   padding: 0;
   margin: 0;
@@ -6,7 +7,15 @@
 }
 
 body {
+  height:100%;
+}
+
+body {
   background-color: #000;
+}
+
+.App {  
+  min-height:100%;
 }
 .swal2-icon {
   zoom : 1.5;
@@ -16,6 +25,47 @@ body {
   zoom : 2.6;
 }
 
+.swal2-success-line-tip{
+  zoom : 1.6; 
+}
+
+.swal2-success-line-long{
+  zoom : 1.6; 
+}
+
 .swal2-container {
   zoom: 2.5;
+}
+
+.swal2-input{
+  width: 16rem !important;
+}
+
+.swal-add{
+  zoom: 1;
+  /* width: 12rem; */
+}
+
+
+.swal2-input option{
+  font-size: 1.2rem;
+}
+
+.add-modal{
+  display: flex;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+}
+
+.modal-input-group {
+  display: flex;
+  align-items: center;
+}
+
+.add-modal label{
+  display: flex;
+  text-align: left;
+  color: #000;
+  font-size: .8rem;
+  width: 8rem;
 }

@@ -7,8 +7,10 @@
 }
 
 .Add-Profile {
-    height: 100%;
+    position:relative;
+    min-height: 100vh;
     font-family: "Poppins", sans-serif;
+    
 }
 
 .img-bg {
@@ -28,7 +30,8 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  top: 12rem;
+  top: 12vh;
+  margin-bottom: 2rem;
 }
 
 .add-profile h1 {
@@ -143,6 +146,7 @@
   .add-profile {
     top: 2rem;
     background-color: var(--black);
+    margin-bottom: 12rem;
   }
 
   .add-profile h1 {

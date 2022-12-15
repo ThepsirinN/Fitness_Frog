@@ -17,7 +17,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const responseUser = await axios.post(
-        "http://localhost:4000/user/checkUser",
+        "http://localhost:4000/api/v1/user/checkUser",
         {
           username: username,
           pass: pass,

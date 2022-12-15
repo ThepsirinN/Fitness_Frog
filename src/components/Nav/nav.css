@@ -4,6 +4,7 @@
   width: 100%;
   position: fixed;
   font-family: "Roboto", sans-serif;
+  z-index: 10000;
 }
 
 .welcome {
@@ -13,19 +14,19 @@
 
 .welcome h1 {
   color: #fff;
-  font-size: 3.2rem;
+  font-size: 2.4rem;
   font-family: 'Inter Tight', sans-serif;
 }
 .welcome span {
-  font-size: 3.2rem;
+  font-size: 2.4rem;
 }
 
 .btnNav {
   font-family: 'Poppins', sans-serif;
-  padding: 1.2rem;
-  margin: 0.4rem 1.2rem;
+  padding: .6rem 1.2rem;
+  margin: 0.2rem 1.2rem;
   border-radius: 2rem !important;
-  font-size: 2.4rem !important;
+  font-size: 1.6rem !important;
 }
 
 .menu-icon {

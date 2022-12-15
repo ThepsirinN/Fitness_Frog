@@ -1,5 +1,6 @@
+import { Link } from "react-router-dom";
 import styles from "./dashboard.module.css";
-import user from "./img/user.png";
+import user from "./img/img_avatar.png";
 import Completion from "./chart/completion";
 import Completionmobile from "./chart/completionmobile";
 import Days from "./chart/days-spent";
@@ -12,16 +13,14 @@ const Dashboard = () => {
     <div className={styles["dashboard-container"]}>
       {/* ========= profile section ========= */}
       <div className={styles["profile"]}>
-        <div className={styles["profile-sec"]}>
-          <div>
+        <div className={styles["profile-sec-img"]}>
+          <div className={styles["profile-img"]}>
             <img
               src={user}
               alt="user"
               width="150px"
               className={styles["img-user"]}
             />
-          </div>
-          <div>
             <button
               type="button"
               className={`${styles["btnProfile"]} btn-light`}
@@ -31,25 +30,25 @@ const Dashboard = () => {
             </button>
           </div>
         </div>
-        <div className={styles["profile-sec"]}>
+        <div className={styles["profile-sec-info"]}>
           <div className={styles["name-gender-age"]}>
-            <div className={styles["name"]}>Mr.David BOND</div>
-            <div className={styles["gender-age"]}>Male, 40 years</div>
+            <p className={styles["name"]}>Mr.David BOND</p>
+            <p className={styles["gender-age"]}>Male, 40 years</p>
           </div>
           <div className={styles["height-weight"]}>
             <div className={styles["height-weight-side"]}>
-              <div className={styles["height"]}>HEIGHT</div>
-              <div className={styles["height-num"]}>178cm</div>
+              <p className={styles["height"]}>HEIGHT</p>
+              <p className={styles["height-num"]}>178cm</p>
             </div>
             <div className={styles["height-weight-side"]}>
-              <div className={styles["weight"]}>WEIGHT</div>
-              <div className={styles["weight-num"]}>75kg</div>
+              <p className={styles["weight"]}>WEIGHT</p>
+              <p className={styles["weight-num"]}>75kg</p>
             </div>
           </div>
-        </div>
-        <div className={styles["profile-sec"]}>
-          <div className={styles["goal"]}>MY GOAL</div>
-          <div className={styles["goal-num"]}>100 DAYS</div>
+          <div className={styles["goal-sec"]}>
+            <p className={styles["goal"]}>MY GOAL</p>
+            <p className={styles["goal-num"]}>100 DAYS</p>
+          </div>
         </div>
       </div>
 
@@ -64,7 +63,11 @@ const Dashboard = () => {
         </div>
         <div className={styles["box_inside"]}>
           <div className="frame">
-            <img src={Completion.getUrl()} className={styles["completion"]} alt="completetion"/>
+            <img
+              src={Completion.getUrl()}
+              className={styles["completion"]}
+              alt="completetion"
+            />
             <img
               src={Completionmobile.getUrl()}
               className={styles["completionmobile"]}
@@ -75,7 +78,7 @@ const Dashboard = () => {
         </div>
         <div className={`${styles["box_inside"]} ${styles["box_down"]}`}>
           <div className="frame">
-            <img src={Days.getUrl()} className={styles["dayspent"]} alt="day"/>
+            <img src={Days.getUrl()} className={styles["dayspent"]} alt="day" />
             <img
               src={Daysmobile.getUrl()}
               className={styles["dayspentmobile"]}
@@ -89,8 +92,16 @@ const Dashboard = () => {
       <div className={styles["sportType"]}>
         <div className={styles["bar"]}>
           <h2>SPORT PROGRESS</h2>
-          <img src={SportType.getUrl()} className={styles["sportbar"]} alt="sport-type"/>
-          <img src={Sportmobile.getUrl()} className={styles["sportmobile"]} alt="sport-type-mobile" />
+          <img
+            src={SportType.getUrl()}
+            className={styles["sportbar"]}
+            alt="sport-type"
+          />
+          <img
+            src={Sportmobile.getUrl()}
+            className={styles["sportmobile"]}
+            alt="sport-type-mobile"
+          />
         </div>
         {/* ========= bar-color ========= */}
         <div className={styles["sportColor"]}>
@@ -129,7 +140,9 @@ const Dashboard = () => {
 
       {/* ========= button ========= */}
       <div className={styles["btn-act"]}>
-        <button>View/Add/Edit Activity</button>
+        <Link to={"/activity"} style={{ textDecoration: "none" }}>
+          <button>View/Add/Edit Activity</button>
+        </Link>
       </div>
     </div>
   );

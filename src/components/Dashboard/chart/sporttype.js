@@ -4,7 +4,7 @@ import QuickChart from 'quickchart-js';
 
 const SportType = new QuickChart();
 
-SportType.setWidth(480)
+SportType.setWidth(840)
 SportType.setHeight(30);
 SportType.setVersion('3');
 SportType.setBackgroundColor('transparent');

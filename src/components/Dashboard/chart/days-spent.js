@@ -5,8 +5,8 @@ import QuickChart from 'quickchart-js';
 
 const Days = new QuickChart();
 
-Days.setWidth(70)
-Days.setHeight(70);
+Days.setWidth(100)
+Days.setHeight(100);
 Days.setVersion('2');
 Days.setBackgroundColor('transparent');
 

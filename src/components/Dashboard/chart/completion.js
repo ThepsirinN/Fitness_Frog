@@ -5,8 +5,8 @@ import QuickChart from 'quickchart-js';
 
 const Completion = new QuickChart();
 
-Completion.setWidth(70)
-Completion.setHeight(70);
+Completion.setWidth(100)
+Completion.setHeight(100);
 Completion.setVersion('2');
 Completion.setBackgroundColor('transparent');
 

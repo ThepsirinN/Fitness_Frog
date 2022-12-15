@@ -19,14 +19,14 @@ const AddModal = () => {
         <div className={styles["form-control"]}>
           <FaRunning className={styles["icon"]} />
           <select name="activity">
-            <option value="Primaryschool" selected>
+            <option value="Activity" selected>
               - Activity -
             </option>
-            <option value="University">Bicycle Riding</option>
-            <option value="University">Hiking</option>
-            <option value="University">Running</option>
-            <option value="Primaryschool">Swimming</option>
-            <option value="Highschool">Walking</option>
+            <option value="Bicycle Riding">Bicycle Riding</option>
+            <option value="Hiking">Hiking</option>
+            <option value="Running">Running</option>
+            <option value="Swimming">Swimming</option>
+            <option value="Walking">Walking</option>
           </select>
         </div>
 

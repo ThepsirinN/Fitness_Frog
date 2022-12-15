@@ -1,123 +1,146 @@
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, redirect } from "react-router-dom";
 import axios from "axios";
-import jwt_decode from "jwt-decode";
 import { useEffect, useState } from "react";
 import Cookies from "universal-cookie";
 import "./App.css";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
+import FooterNotFull from "./components/FooterNotFull";
 import Landing from "./components/Landing/Landing";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Register from "./components/Register";
 import AddProfile from "./components/AddProfile";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
+import Activitiy from "./components/Activity";
+import { PageContextProvider } from "./context/PageContext";
 
 const App = () => {
   const [token, setToken] = useState(null);
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const cookies = new Cookies();
-    if (cookies.get("refreshToken") && cookies.get("user")) {
-      try {
-        const decoded = jwt_decode(cookies.get("refreshToken"));
+    let tid = setTimeout(() => {
+      const cookies = new Cookies();
+      const checkToken = async () => {
         try {
-          axios
-            .post("http://localhost:4000/user/checkBcrypt", {
-              userHash: decoded.userHash,
-              user: cookies.get("user"),
-            })
-            .then((result) => {
-              console.log(result);
-              if (result.data.status) {
-                setToken(cookies.get("refreshToken"));
-                setUser(cookies.get("user"));
-              }
-            })
-            .catch((e) => {
-              cookies.remove("refreshToken")
-              cookies.remove("user")
-              console.log(e);
-            });
-        } catch (err) {
-          console.log(err);
+          let response = await axios.get(
+            "http://localhost:4000/api/v1/user/checkAuth",
+            {
+              headers: {
+                Authorization: `Bearer ${cookies.get("refreshToken")}`,
+                user: cookies.get("user"),
+              },
+            }
+          );
+          if (response) {
+            if (response.data.status) {
+              cookies.set("refreshToken", response.data.refreshToken.key, {
+                path: "/",
+                expires: new Date(Date.now() + response.data.refreshToken.exp),
+              });
+              cookies.set("user", response.data.userGet, {
+                path: "/",
+                expires: new Date(Date.now() + response.data.refreshToken.exp),
+              });
+              setToken(cookies.get("refreshToken"));
+              setUser(cookies.get("user"));
+            }
+          }
+        } catch (e) {
+          cookies.remove("refreshToken");
+          cookies.remove("user");
+          console.log(e);
         }
-      } catch (err) {
-        console.log(err);
+      };
+      if (cookies.get("refreshToken") && cookies.get("user")) {
+        checkToken();
       }
-    }
+    }, 1000);
+    return () => {
+      clearInterval(tid);
+    };
   }, []);
-  const navigate = useNavigate();
 
-  useEffect(() => {
+  /*   useEffect(() => {
     if (token && user) {
-      navigate("/dashboard");
+      redirect("/dashboard", 302);
     } else {
-      navigate("/");
+      redirect("/", 302);
     }
-  }, [token, user]);
+  }, [token, user]); */
 
   return (
     <div className="App">
-      <Routes>
-        {!token && !user && (
-          <>
-            {/* Landing Page */}
-            <Route path="" element={<Landing />} />
-            {/* About-Us Page */}
-            <Route path="about-us" element={<AboutUs />} />
-            {/* Register Page */}
-            <Route
-              path="register"
-              element={
-                <>
-                  <Register />
-                  <Footer />
-                </>
-              }
-            />
+      {!token && !user && (
+        <Routes>
+          {/* Landing Page */}
+          <Route path="" element={<Landing />} />
+          {/* About-Us Page */}
+          <Route path="about-us" element={<AboutUs />} />
+          {/* Register Page */}
+          <Route
+            path="register"
+            element={
+              <>
+                <Register />
+                <FooterNotFull />
+              </>
+            }
+          />
 
-            {/* Login Page */}
-            <Route
-              path="login"
-              element={
-                <>
-                  <Login />
-                  <Footer />
-                </>
-              }
-            />
-          </>
-        )}
+          {/* Login Page */}
+          <Route
+            path="login"
+            element={
+              <>
+                <Login />
+                <FooterNotFull />
+              </>
+            }
+          />
+        </Routes>
+      )}
 
-        {token && user && (
-          <>
-            {/* Add-Profile Page */}
-            <Route
-              path="add-profile"
-              element={
-                <>
-                  <AddProfile />
-                  <Footer />
-                </>
-              }
-            />
+      {token && user && (
+        <Routes>
+          {/* Add-Profile Page */}
+          <Route
+            path="add-profile"
+            element={
+              <>
+                <AddProfile />
+                <Footer />
+              </>
+            }
+          />
 
-            {/* DashBoard Page */}
-            <Route
-              path="dashboard"
-              element={
-                <>
-                  <Nav />
-                  <Dashboard />
-                  <Footer />
-                </>
-              }
-            />
-          </>
-        )}
-      </Routes>
+          {/* DashBoard Page */}
+          <Route
+            path="dashboard"
+            element={
+              <>
+                <Nav />
+                <Dashboard />
+                <Footer />
+              </>
+            }
+          />
+
+          {/* Activity Page */}
+          <Route
+            path="activity"
+            element={
+              <>
+                <Nav />
+                <PageContextProvider>
+                  <Activitiy />
+                </PageContextProvider>
+              </>
+            }
+          />
+        </Routes>
+      )}
     </div>
   );
 };

@@ -4,14 +4,17 @@ import { useMediaQuery } from "react-responsive";
 // import {Link} from "react-router-dom";
 
 const Card = (props) => {
-
-  // const usestate, toggle : Edit
-  // const usestate, toggle : BinDesktop
-  // const usestate, toggle : statusWrong
-  // const usestate, toggle : statusCheck
-
   const isMobile =  useMediaQuery({ query: '(min-width: 320px) and (max-width: 819px)' })
   const isDesktop =  useMediaQuery({ minWidth: 820 })
+  const activity = ["Running","Walking","Swimming","Hiking","Cycling"]
+  const status = ["pending", "Completed"]
+  const startDate = new Date(props.startDate)
+  const startDateString = startDate.toLocaleString()
+  const endDate = new Date(props.endDate)
+  const endDateString = endDate.toLocaleString()
+  const minuteDuration = (endDate - startDate)/(60*1000)
+  const hourDuration = Math.floor(minuteDuration / 60)
+  const minuteRemainingDuration = minuteDuration % 60
 
     const mobileJSX = (
       <div className={styles["card_plate"]}>
@@ -25,24 +28,30 @@ const Card = (props) => {
           </div>
 
           <div className={styles["card_name size"]}>
-            <label>Name</label>
-            <input type="text" placeholder="DDD" readOnly />
+            <strong>Name : </strong>
+            <span>{props.name}</span>
             <FaTrashAlt className={styles["bin"]} /> {/* onClick={toggleBinDesk} */}
           </div>
 
           <div className={styles["card_activity size"]}>
-            <label>Activity</label>
-            <input type="text" placeholder="DDD" readOnly />
+            <strong>Activity : </strong>
+            <span>{activity[props.activityType-1]}</span>
           </div>
 
           <div className={styles["card_date size"]}>
-            <label>Date</label>
-            <input type="text" placeholder="10/10/2022 17.00" readOnly />
+            <strong>StartDate : </strong>
+            <span>{startDateString}</span>
+          </div>
+
+          <div className={styles["card_date size"]}>
+            <strong>Duration : </strong>
+            <span>{hourDuration > 0 ? `${hourDuration} hr.`: "" }</span>
+            <span> {minuteRemainingDuration > 0 ? `${minuteRemainingDuration} min.`: "" }</span>
           </div>
 
           <div className={styles["card_status size"]}>
-            <label>Status</label>
-            <input type="text" placeholder="pending" readOnly />
+            <strong>Status : </strong>
+            <span>{status[props.status]}</span>
             <div className={styles["card_status_btn"]}>
               <FaTimesCircle className={styles["wrong"]} /> {/* onClick={toggleWrong} */}
               <FaCheckCircle className={styles["check"]} /> {/* onClick={toggleCheck} */}
@@ -63,34 +72,34 @@ const Card = (props) => {
           </div>
 
           <div className={styles["card_name size"]}>
-            <label>Name</label>
-            <input type="text" placeholder="DDD" readOnly />
+            <strong>Name : </strong>
+            <span>DDD</span>
             <FaTrashAlt className={styles["bin"]} />
           </div>
 
           <div className={styles["card_datail size"]}>
-            <label>Description</label>
-            <input type="text" placeholder="DDD" readOnly />
+            <strong>Description : </strong>
+            <span>DDD</span>
           </div>
 
           <div className={styles["card_activity size"]}>
-            <label>Activity</label>
-            <input type="text" placeholder="DDD" readOnly />
+            <strong>Activity : </strong>
+            <span>DDD</span>
           </div>
 
           <div className={styles["card_date size"]}>
-            <label>Date</label>
-            <input type="text" placeholder="10/10/2022 17.00" readOnly />
+            <strong>Date : </strong>
+            <span>10/10/2022 17.00</span>
           </div>
 
           <div className={styles["card_period size"]}>
-            <label>Duration</label>
-            <input type="text" placeholder="DDD" readOnly />
+            <strong>Duration : </strong>
+            <span>DDD</span>
           </div>
 
           <div className={styles["card_status size"]}>
-            <label>Status</label>
-            <input type="text" placeholder="pending" readOnly />
+            <strong>Status : </strong>
+            <span>pending</span>
             <div className={styles["card_status_btn"]}>
               <FaTimesCircle className={styles["wrong"]} />
               <FaCheckCircle className={styles["check"]} />

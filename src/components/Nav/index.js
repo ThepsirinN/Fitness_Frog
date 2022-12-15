@@ -1,4 +1,5 @@
 import "./nav.css";
+import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { CgMenuGridR } from "react-icons/cg";
 import { useState } from "react";
@@ -37,15 +38,11 @@ const Nav = () => {
           />
         </a>
         <div className="btn-mobile" style={{ display: navMobile }}>
-          <button type="button" className="btn btn-outline-light btnNav">
-            HOME
-          </button>
-          <button type="button" className="btn btn-outline-light btnNav">
-            NEW & EVENT
-          </button>
-          <button type="button" className="btn btn-outline-light btnNav">
-            ABOUT US
-          </button>
+          <Link to={"/dashboard"} style={{ textDecoration: "none" }}>
+            <button type="button" className="btn btn-outline-light btnNav">
+              HOME
+            </button>
+          </Link>
           <button type="button" className="btn btn-outline-light btnNav">
             LOGOUT
           </button>
@@ -63,15 +60,11 @@ const Nav = () => {
           {/* name from Input {name}*/}
         </div>
         <div className="btn-group">
-          <button type="button" className="btn btn-outline-light btnNav">
-            HOME
-          </button>
-          <button type="button" className="btn btn-outline-light btnNav">
-            NEW & EVENT
-          </button>
-          <button type="button" className="btn btn-outline-light btnNav">
-            ABOUT US
-          </button>
+          <Link to={"/dashboard"} style={{ textDecoration: "none" }}> 
+            <button type="button" className="btn btn-outline-light btnNav">
+              HOME
+            </button>
+          </Link>
           <button type="button" className="btn btn-outline-light btnNav">
             LOGOUT
           </button>

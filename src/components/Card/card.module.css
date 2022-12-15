@@ -5,9 +5,17 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    line-height: 3.2rem;
+    min-height: 32rem;
+    width: 32rem;
+}
+
+.card_data strong{ 
     font-size: 1.6rem;
-    line-height: 3rem;
-    width: 100%;
+}
+
+.card_data span{ 
+    font-size: 1.6rem;
 }
 
 .card_head {

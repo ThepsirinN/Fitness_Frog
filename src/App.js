@@ -25,7 +25,7 @@ const App = () => {
       const checkToken = async () => {
         try {
           let response = await axios.get(
-            "http://localhost:4000/api/v1/user/checkAuth",
+            process.env.REACT_APP_BACKEND_ROUTE+'/user/checkAuth',
             {
               headers: {
                 Authorization: `Bearer ${cookies.get("refreshToken")}`,

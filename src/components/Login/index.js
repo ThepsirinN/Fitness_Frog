@@ -17,7 +17,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const responseUser = await axios.post(
-        "http://localhost:4000/api/v1/user/checkUser",
+        process.env.REACT_APP_BACKEND_ROUTE+"/user/checkUser",
         {
           username: username,
           pass: pass,
@@ -84,6 +84,7 @@ const Login = () => {
               onChange={({ target }) => {
                 return setUsername(target.value);
               }}
+              required
             />
           </div>
           <div className={styles["form-group"]}>
@@ -101,6 +102,7 @@ const Login = () => {
               onChange={({ target }) => {
                 return setPass(target.value);
               }}
+              required
             />
           </div>
 

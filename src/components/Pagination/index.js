@@ -11,7 +11,7 @@ import { MyPageContext } from "../../context/PageContext";
 
 const Pagination = () => {
   // for select page by useContext
-  const { setPageValue } = MyPageContext();
+  const { setPageValue, isChange, setIsChangeValue } = MyPageContext();
 
   // for add button
   const cookies = new Cookies();
@@ -29,6 +29,7 @@ const Pagination = () => {
                 id="swal-input1"
                 className="swal2-input swal-add"
                 placeholder="Activity-Name"
+                required
               />
             </div>
             <div className="modal-input-group">
@@ -37,11 +38,16 @@ const Pagination = () => {
                 id="swal-input2"
                 className="swal2-input swal-add"
                 placeholder="Description"
+                required
               ></textarea>
             </div>
             <div className="modal-input-group">
               <label htmlFor="swal-input3">Sport type </label>
-              <select id="swal-input3" className="swal2-input swal-add">
+              <select
+                id="swal-input3"
+                className="swal2-input swal-add"
+                required
+              >
                 <option value={0}>Please select activity type</option>
                 <option value={1}>Running</option>
                 <option value={2}>Walking</option>
@@ -56,6 +62,7 @@ const Pagination = () => {
                 id="swal-input4"
                 type="datetime-local"
                 className="swal2-input swal-add"
+                required
               />
             </div>
             <div className="modal-input-group">
@@ -64,6 +71,7 @@ const Pagination = () => {
                 id="swal-input5"
                 type="datetime-local"
                 className="swal2-input swal-add"
+                required
               />
             </div>
           </div>
@@ -82,7 +90,7 @@ const Pagination = () => {
       });
       if (result) {
         const response = await axios.post(
-          "http://localhost:4000/api/v1/activities/createActivity",
+          process.env.REACT_APP_BACKEND_ROUTE + "/activities/createActivity",
           {
             user: cookies.get("user"),
             refreshToken: cookies.get("refreshToken"),
@@ -96,6 +104,7 @@ const Pagination = () => {
           }
         );
         if (response) {
+          setIsChangeValue(true);
           Swal.fire({
             title: `${response.data.msg}!`,
             icon: "success",
@@ -107,6 +116,13 @@ const Pagination = () => {
       if (e.response.status === 400) {
         Swal.fire({
           title: `Bad Request!`,
+          text: `${e.response.data.msg}`,
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      } else if (e.response.status === 401) {
+        Swal.fire({
+          title: `Unauthorize!`,
           text: `${e.response.data.msg}`,
           icon: "error",
           confirmButtonText: "OK",
@@ -132,19 +148,23 @@ const Pagination = () => {
   useEffect(() => {
     let tid = setTimeout(() => {
       axios
-        .get(`http://localhost:4000/api/v1/activities/getPage/${perPage}`, {
-          headers: {
-            user: cookies.get("user"),
-            refreshtoken: cookies.get("refreshToken"),
-          },
-        })
+        .get(
+          process.env.REACT_APP_BACKEND_ROUTE +
+            `/activities/getPage/${perPage}`,
+          {
+            headers: {
+              user: cookies.get("user"),
+              refreshtoken: cookies.get("refreshToken"),
+            },
+          }
+        )
         .then((response) => {
           if (response.data.numPage !== 0) {
             pageArr.splice(0, pageArr.length);
             for (let i = 1; i <= response.data.numPage; i++) {
               pageArr.push(i);
             }
-            setPageValue(1)
+            setPageValue(1);
             setIsLoading(false);
           }
         })
@@ -152,16 +172,16 @@ const Pagination = () => {
     }, 100);
 
     return () => {
-      setPageValue("")
+      setPageValue("");
       setIsLoading(true);
       clearTimeout(tid);
     };
-  }, [perPage]);
+  }, [perPage, isChange]);
 
   // for select page by useContext
   const handleClickPage = (e) => {
-    setPageValue(e.target.innerText)
-  }
+    setPageValue(e.target.innerText);
+  };
 
   // jsx render
   return (
@@ -170,7 +190,11 @@ const Pagination = () => {
         <div className={styles["page_btn_number"]}>
           {!isLoading &&
             pageArr.map((e) => {
-              return <button key={e} onClick={handleClickPage}>{e}</button>;
+              return (
+                <button key={e} onClick={handleClickPage}>
+                  {e}
+                </button>
+              );
             })}
         </div>
 

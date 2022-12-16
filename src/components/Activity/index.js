@@ -11,9 +11,7 @@ import Cookies from "universal-cookie";
 
 const Activity = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState("");
-
-  const { page } = MyPageContext();
+  const { page, isChange, setIsChangeValue, data, setDataValue } = MyPageContext();
 
   const isMobile = useMediaQuery({
     query: "(min-width: 320px) and (max-width: 819px)",
@@ -24,7 +22,7 @@ const Activity = () => {
     const cookies = new Cookies();
     let tid = setTimeout(() => {
       axios
-        .get("http://localhost:4000/api/v1/activities/getData", {
+        .get(process.env.REACT_APP_BACKEND_ROUTE+"/activities/getData", {
           headers: {
             user: cookies.get("user"),
             refreshtoken: cookies.get("refreshToken"),
@@ -32,7 +30,8 @@ const Activity = () => {
         })
         .then((response) => {
           if (response.data.activitiesData.length !== 0) {
-            setData(response.data.activitiesData.reverse());
+            setDataValue(response.data.activitiesData.reverse());
+            setIsChangeValue(false);
             setIsLoading(false);
           }
         })
@@ -43,7 +42,7 @@ const Activity = () => {
     return () => {
       clearTimeout(tid);
     };
-  }, []);
+  }, [isChange]);
 
   /*testArr = [
     {name:"prayut",surname:"sonteen"},
@@ -59,20 +58,70 @@ const Activity = () => {
       </div>
       <div className={styles["card-container"]}>
         {!isLoading && isMobile && (
-          <Card
-            number={page}
-            name={data[page - 1].name}
-            activityType={data[page - 1].activityType}
-            startDate={data[page - 1].startDate}
-            endDate={data[page - 1].endDate}
-            status={data[page - 1].status}
-          />
+          <>
+            {data.map((e, i) => {
+              if (i === page - 1) {
+                return (
+                  <Card
+                    key={e._id}
+                    keys={e._id}
+                    number={page}
+                    name={e.name}
+                    activityType={e.activityType}
+                    startDate={e.startDate}
+                    endDate={e.endDate}
+                    status={e.status}
+                  />
+                );
+              }
+              return "";
+            })}
+          </>
         )}
+
+        {/* 1 => 1 , 1 2 , 1 2 3
+          2 => 4 , 4 5 , 4 5 6
+          3 => 7 , 7 8 , 7 8 9
+          4 => 10 , 10 11 , 10 11 12
+          
+          1, 4, 7, 10, ...
+          
+          n = page
+          an = a1 + (n-1)*d
+          an = 1 + (n-1)*3
+          an = 1 + 3*n - 3
+          an = 3*n - 2
+          
+          3, 6, 9, 12, ...
+          an = 3*n */}
         {!isLoading && isDesktop && (
           <>
-            <Card number={10} />
-            <Card number={9} />
-            <Card number={8} />
+            {data.map((e, i) => {
+              if (i >= 3 * page - 3 && i <= 3 * page - 1) {
+                // minus 1 because array start from 0
+                /* 
+                [0,1,2,3,4,5,6,7] ; i is index in array
+                page 1 : 3*page-3 => 0 && 3*page-1 => 2 ; [0,1,2]
+                page 2 : 3*page-3 => 3 && 3*page-1 => 5 ; [3,4,5]
+                page 3 : 3*page-3 => 6 && 3*page-1 => 8 ; [6,7]
+                */
+                // e = data[i]
+                return (
+                  <Card
+                    key={e._id}
+                    keys={e._id}
+                    number={i + 1}
+                    name={e.name}
+                    description={e.description}
+                    activityType={e.activityType}
+                    startDate={e.startDate}
+                    endDate={e.endDate}
+                    status={e.status}
+                  />
+                );
+              }
+              return "";
+            })}
           </>
         )}
       </div>

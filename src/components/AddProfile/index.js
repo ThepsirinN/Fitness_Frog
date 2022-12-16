@@ -28,7 +28,7 @@ const AddProfile = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/v1/userDetail/createUserDetail",
+        process.env.REACT_APP_BACKEND_ROUTE+"/userDetail/createUserDetail",
         {
           username: cookies.get("user"),
           refreshToken: cookies.get("refreshToken"),

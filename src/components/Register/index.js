@@ -20,7 +20,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/v1/user/createUser",
+        process.env.REACT_APP_BACKEND_ROUTE+"/user/createUser",
         {
           username: username,
           email: email,
@@ -87,6 +87,7 @@ const Register = () => {
               onChange={({ target }) => {
                 return setEmail(target.value);
               }}
+              required
             />
           </div>
 
@@ -105,6 +106,7 @@ const Register = () => {
               onChange={({ target }) => {
                 return setUsername(target.value);
               }}
+              required
             />
           </div>
 
@@ -123,6 +125,7 @@ const Register = () => {
               onChange={({ target }) => {
                 return setPass(target.value);
               }}
+              required
             />
           </div>
 
@@ -141,6 +144,7 @@ const Register = () => {
               onChange={({ target }) => {
                 return setConfirmPass(target.value);
               }}
+              required
             />
           </div>
           <section className={styles["register-button"]}>

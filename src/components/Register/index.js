@@ -30,7 +30,7 @@ const Register = () => {
       );
       if (response) {
         cookies.set("refreshToken", response.data.refreshToken.key , {path:"/", expires:new Date(Date.now()+response.data.refreshToken.exp)})
-        cookies.set("user", username , {path:"/", expires:new Date(Date.now()+response.data.refreshToken.exp)})
+        cookies.set("user", response.data.refreshToken.user , {path:"/", expires:new Date(Date.now()+response.data.refreshToken.exp)})
         Swal.fire({
           title: `${response.data.msg}!`,
           icon: "success",

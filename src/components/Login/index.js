@@ -26,7 +26,7 @@ const Login = () => {
 
       if (responseUser) {
         cookies.set("refreshToken", responseUser.data.refreshToken.key , {path:"/", expires:new Date(Date.now()+responseUser.data.refreshToken.exp)})
-        cookies.set("user", username , {path:"/", expires:new Date(Date.now()+responseUser.data.refreshToken.exp)})
+        cookies.set("user", responseUser.data.refreshToken.user , {path:"/", expires:new Date(Date.now()+responseUser.data.refreshToken.exp)})
         Swal.fire({
           title: `${responseUser.data.msg}!`,
           icon: "success",
@@ -63,9 +63,9 @@ const Login = () => {
       </header>
       <main className={styles["login-container"]}>
         <section className={styles["login-header"]}>
-          <h1 className="text-white">Fitness Frog</h1>
+          <h1>Fitness Frog</h1>
         </section>
-        <section className={`text-white ${styles["login-title"]}`}>
+        <section className={` ${styles["login-title"]}`}>
           <h2>Login</h2>
         </section>
         <form className={styles["login-Form"]} onSubmit={login}>

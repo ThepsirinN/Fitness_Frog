@@ -11,6 +11,10 @@ import withReactContent from "sweetalert2-react-content";
 import axios from "axios";
 import Cookies from "universal-cookie";
 import { MyPageContext } from "../../context/PageContext";
+import correct from "./img/correct.png";
+import edit from "./img/Edit.png";
+import remove from "./img/remove.png";
+import wrong from "./img/wrong.png";
 
 // import {Link} from "react-router-dom";
 
@@ -92,7 +96,6 @@ const Card = (props) => {
       return e._id === activitykey;
     });
 
-    console.log(editArrItem);
     const MySwal = withReactContent(Swal);
     try {
       const { value: result } = await MySwal.fire({
@@ -213,7 +216,7 @@ const Card = (props) => {
     }
   };
 
-  const updateStatus = async (status,activitykey) => {
+  const updateStatus = async (status, activitykey) => {
     try {
       let response = await axios.put(
         process.env.REACT_APP_BACKEND_ROUTE + "/activities/editStatus",
@@ -227,7 +230,7 @@ const Card = (props) => {
       );
       if (response) {
         //console.log(response);
-        setIsChangeValue(true)
+        setIsChangeValue(true);
       }
     } catch (e) {
       if (e.response.status === 400) {
@@ -246,19 +249,18 @@ const Card = (props) => {
         });
       }
     }
-
-  }
+  };
 
   const handleOnclickCheck = async (e) => {
     e.preventDefault();
     const activitykey = e.target.getAttribute("keys");
-    updateStatus(1,activitykey)
+    updateStatus(1, activitykey);
   };
 
   const handleOnclickCross = async (e) => {
     e.preventDefault();
     const activitykey = e.target.getAttribute("keys");
-    updateStatus(0,activitykey)
+    updateStatus(0, activitykey);
   };
 
   const mobileJSX = (
@@ -267,8 +269,16 @@ const Card = (props) => {
         <div className={styles["card_head"]}>
           <h1>No.{props.number}</h1>
           <div className={styles["card_head_icon"]}>
-            <FaEdit className={styles["edit"]} /> {/* onClick={toggleEdit} */}
-            <FaTrashAlt
+            <img
+              src={edit}
+              alt="edit-item"
+              className={styles["edit"]}
+              keys={props.keys}
+              onClick={handleOnClickEdit}
+            />
+            <img
+              src={remove}
+              alt="remove-item"
               className={styles["bin-mobile"]}
               keys={props.keys}
               onClick={handleOnClickDelete}
@@ -279,12 +289,6 @@ const Card = (props) => {
         <div className={styles["card_name size"]}>
           <strong>Name : </strong>
           <span>{props.name}</span>
-          <FaTrashAlt
-            className={styles["bin"]}
-            keys={props.keys}
-            onClick={handleOnClickDelete}
-          />{" "}
-          {/* onClick={toggleBinDesk} */}
         </div>
 
         <div className={styles["card_activity size"]}>
@@ -312,16 +316,25 @@ const Card = (props) => {
           <strong>Status : </strong>
           <span>{status[props.status]}</span>
           <div className={styles["card_status_btn"]}>
-            {props.status === 1 && <FaTimesCircle
-              className={styles["wrong"]}
-              keys={props.keys}
-              onClick={handleOnclickCross}
-            />}
-            { props.status === 0 && <FaCheckCircle
-              className={styles["check"]}
-              keys={props.keys}
-              onClick={handleOnclickCheck}
-            />}
+          <strong>Change Status :</strong>
+            {props.status === 1 && (
+              <img
+                src={wrong}
+                alt="wrong-status"
+                className={styles["wrong"]}
+                keys={props.keys}
+                onClick={handleOnclickCross}
+              />
+            )}
+            {props.status === 0 && (
+              <img
+                src={correct}
+                alt="correct-status"
+                className={styles["check"]}
+                keys={props.keys}
+                onClick={handleOnclickCheck}
+              />
+            )}
           </div>
         </div>
       </form>
@@ -334,10 +347,19 @@ const Card = (props) => {
         <div className={styles["card_head"]}>
           <h1>No.{props.number}</h1>
           <div className={styles["card_head_icon"]}>
-            <FaEdit
+            <img
+              src={edit}
+              alt="edit-item"
               className={styles["edit"]}
               keys={props.keys}
               onClick={handleOnClickEdit}
+            />
+            <img
+              src={remove}
+              alt="remove-item"
+              className={styles["bin-mobile"]}
+              keys={props.keys}
+              onClick={handleOnClickDelete}
             />
           </div>
         </div>
@@ -345,11 +367,6 @@ const Card = (props) => {
         <div className={styles["card_name size"]}>
           <strong>Name : </strong>
           <span>{props.name}</span>
-          <FaTrashAlt
-            className={styles["bin"]}
-            keys={props.keys}
-            onClick={handleOnClickDelete}
-          />
         </div>
 
         <div className={styles["card_datail size"]}>
@@ -382,16 +399,25 @@ const Card = (props) => {
           <strong>Status : </strong>
           <span>{status[props.status]}</span>
           <div className={styles["card_status_btn"]}>
-          { props.status === 1 &&<FaTimesCircle
-              className={styles["wrong"]}
-              keys={props.keys}
-              onClick={handleOnclickCross}
-            />}
-            { props.status === 0 &&<FaCheckCircle
-              className={styles["check"]}
-              keys={props.keys}
-              onClick={handleOnclickCheck}
-            />}
+            <strong>Change Status :</strong>
+            {props.status === 1 && (
+              <img
+                src={wrong}
+                alt="wrong-status"
+                className={styles["wrong"]}
+                keys={props.keys}
+                onClick={handleOnclickCross}
+              />
+            )}
+            {props.status === 0 && (
+              <img
+                src={correct}
+                alt="correct-status"
+                className={styles["check"]}
+                keys={props.keys}
+                onClick={handleOnclickCheck}
+              />
+            )}
           </div>
         </div>
       </form>

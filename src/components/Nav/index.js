@@ -3,8 +3,11 @@ import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { CgMenuGridR } from "react-icons/cg";
 import { useState } from "react";
+import axios from "axios";
+import Cookies from "universal-cookie";
 
 const Nav = () => {
+  const cookies = new Cookies();
   const [navMobile, setNavMobile] = useState("none");
 
   const isMobile = useMediaQuery({
@@ -21,13 +24,28 @@ const Nav = () => {
     }
   };
 
+  const handleOnclickLogout = async (e) => {
+    e.preventDefault();
+    let response = await axios.put(
+      process.env.REACT_APP_BACKEND_ROUTE + "/user/logout",
+      {
+        user: cookies.get("user"),
+        refreshToken: cookies.get("refreshToken"),
+      }
+    );
+
+    if (response) {
+      cookies.remove("refreshToken");
+      cookies.remove("user");
+      return window.location.assign("./");
+    }
+  };
+
   const mobileJSX = (
     <div>
       <nav className="navbar navbar-dark bg-dark">
         <div className="welcome">
-          <h1>
-            Welcome! <span>Mr.David</span>
-          </h1>{" "}
+          <h1>Fitness Frog</h1>
           {/* name from Input {name}*/}
         </div>
         {/* "Hamburger menu" / "Bar icon" to toggle the navigation links */}
@@ -43,7 +61,11 @@ const Nav = () => {
               HOME
             </button>
           </Link>
-          <button type="button" className="btn btn-outline-light btnNav">
+          <button
+            type="button"
+            className="btn btn-outline-light btnNav"
+            onClick={handleOnclickLogout}
+          >
             LOGOUT
           </button>
         </div>
@@ -54,18 +76,19 @@ const Nav = () => {
     <div>
       <nav className="navbar navbar-dark bg-dark">
         <div className="welcome">
-          <h1>
-            Welcome! <span>Mr.David</span>
-          </h1>{" "}
-          {/* name from Input {name}*/}
+          <h1>Fitness Frog</h1> {/* name from Input {name}*/}
         </div>
         <div className="btn-group">
-          <Link to={"/dashboard"} style={{ textDecoration: "none" }}> 
+          <Link to={"/dashboard"} style={{ textDecoration: "none" }}>
             <button type="button" className="btn btn-outline-light btnNav">
               HOME
             </button>
           </Link>
-          <button type="button" className="btn btn-outline-light btnNav">
+          <button
+            type="button"
+            className="btn btn-outline-light btnNav"
+            onClick={handleOnclickLogout}
+          >
             LOGOUT
           </button>
         </div>

@@ -12,12 +12,15 @@ import Register from "./components/Register";
 import AddProfile from "./components/AddProfile";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
+import EditProfile from "./components/EditProfile"
 import Activitiy from "./components/Activity";
 import { PageContextProvider } from "./context/PageContext";
 
 const App = () => {
   const [token, setToken] = useState(null);
   const [user, setUser] = useState(null);
+  // isLoading ป้องกันโหลดหน้าแล้วจอดำ
+  /* const [isLoading, setIsLoading] = useState(true) */
 
   useEffect(() => {
     let tid = setTimeout(() => {
@@ -25,7 +28,7 @@ const App = () => {
       const checkToken = async () => {
         try {
           let response = await axios.get(
-            process.env.REACT_APP_BACKEND_ROUTE+'/user/checkAuth',
+            process.env.REACT_APP_BACKEND_ROUTE + "/user/checkAuth",
             {
               headers: {
                 Authorization: `Bearer ${cookies.get("refreshToken")}`,
@@ -39,7 +42,7 @@ const App = () => {
                 path: "/",
                 expires: new Date(Date.now() + response.data.refreshToken.exp),
               });
-              cookies.set("user", response.data.userGet, {
+              cookies.set("user", response.data.userHash, {
                 path: "/",
                 expires: new Date(Date.now() + response.data.refreshToken.exp),
               });
@@ -56,6 +59,7 @@ const App = () => {
       if (cookies.get("refreshToken") && cookies.get("user")) {
         checkToken();
       }
+      
     }, 1000);
     return () => {
       clearInterval(tid);
@@ -121,11 +125,24 @@ const App = () => {
             element={
               <>
                 <Nav />
-                <Dashboard />
+                  <Dashboard />
                 <Footer />
               </>
             }
           />
+
+          <Route
+            path="edit-profile"
+            element={
+              <>
+                <Nav />
+                <EditProfile />
+                <Footer />
+              </>
+            }
+          />
+
+
 
           {/* Activity Page */}
           <Route

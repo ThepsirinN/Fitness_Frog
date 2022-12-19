@@ -66,6 +66,7 @@
 .login-header h1 {
     font-size: 6.4rem;
     margin-bottom: 4rem;
+    color: white;
 }
 
 /* Login-title section */
@@ -76,6 +77,7 @@
     text-decoration-color: var(--orange); */
     padding-bottom: .8rem;
     border-bottom: var(--orange) solid .4rem;
+    color: white;
 }
 
 /* Login-form section */

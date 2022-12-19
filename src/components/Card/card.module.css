@@ -24,31 +24,49 @@
     align-items: center;
 }
 
+.card_head_icon {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.4rem;
+}
+
+strong {
+    font-weight: 700;
+}
+
 h1 {
     color: #000000;
     margin-top: 0.8rem;
+    font-size: 2.4rem;
 }
 
-.edit, .bin {
+
+.edit, .bin-mobile {
     font-size: 2.4rem;
     color: #000000;   
     cursor: pointer;
     float: right;
     margin-top: 0.3rem;
+    
+}
+.edit{
+    width: 2.4rem;
 }
 
 .bin {
-    padding-right: 0.4rem;
+    display: none;
 }
 
 .bin-mobile{
-    display: none;
-}
+    display: block;
+    width: 2.8rem;
+} 
 
 .wrong, .check {
     font-size: 3rem;
     cursor: pointer;
     border-radius: 5rem;
+    width: 3.2rem;
 }
 
 .wrong {
@@ -123,10 +141,6 @@ label:after { content: " : " }
         cursor: pointer;
         float: right;
         margin-top: 0.3rem;
-    }
-
-    .bin-mobile {
-        display: block;
     }
 
     .bin {

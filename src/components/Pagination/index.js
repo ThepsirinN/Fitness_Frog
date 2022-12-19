@@ -105,6 +105,7 @@ const Pagination = () => {
         );
         if (response) {
           setIsChangeValue(true);
+          localStorage.setItem("Oldpage",1)
           Swal.fire({
             title: `${response.data.msg}!`,
             icon: "success",
@@ -165,6 +166,11 @@ const Pagination = () => {
               pageArr.push(i);
             }
             setPageValue(1);
+            if(localStorage.getItem("Oldpage")){
+              setPageValue(localStorage.getItem("Oldpage"))
+            }else{
+              localStorage.setItem("Oldpage",1)
+            }
             setIsLoading(false);
           }
         })
@@ -181,6 +187,7 @@ const Pagination = () => {
   // for select page by useContext
   const handleClickPage = (e) => {
     setPageValue(e.target.innerText);
+    localStorage.setItem("Oldpage", e.target.innerText)
   };
 
   // jsx render
@@ -190,8 +197,9 @@ const Pagination = () => {
         <div className={styles["page_btn_number"]}>
           {!isLoading &&
             pageArr.map((e) => {
+              const clsName = localStorage.getItem("Oldpage") == e ? "active-btn"  : ""
               return (
-                <button key={e} onClick={handleClickPage}>
+                <button key={e} onClick={handleClickPage} className={styles[clsName]}>
                   {e}
                 </button>
               );
@@ -205,7 +213,7 @@ const Pagination = () => {
         </div>
 
         <div className={styles["page_btn_plus"]} onClick={handleAdd}>
-          <BsFillPlusCircleFill />
+          <span>+</span>
         </div>
       </div>
     </div>

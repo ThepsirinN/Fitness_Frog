@@ -11,6 +11,7 @@
     "jwt-decode": "^3.1.2",
     "quickchart-js": "^3.1.1",
     "react": "^18.2.0",
+    "react-chartjs-2": "^5.0.1",
     "react-dom": "^18.2.0",
     "react-icons": "^4.7.1",
     "react-minimal-datetime-range": "^2.0.7",

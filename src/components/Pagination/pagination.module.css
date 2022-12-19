@@ -18,12 +18,18 @@
 
 .page_btn_number button {
     padding: 0.8rem 1.6rem;
+    width: 4.8rem;
+    height: 4.8rem;
     font-size: 1.6rem;
     background-color: #ff8c01;
     text-align: center;
     border-radius: 6.4rem;
     cursor: pointer;
     border: #fff;
+}
+
+.active-btn {
+    background-color: #fff !important;
 }
 
 .page_btn_back {
@@ -33,22 +39,47 @@
 }
 
 .page_btn_back button {
-    background-color: #ff8c01;
+    background-color: var(--red);
+    color: var(--white);
     padding: 1.6rem 1.6rem;
     font-size: 2rem;
+    font-weight: 700;
     cursor: pointer;
     border-radius: 2.4rem;
-    border: #fff;
+    border: 0.2rem solid var(--red);
+    transition: background-color 1.5s, color 1.5s, border 1.5s;
+}
+
+.page_btn_back button:hover {
+    background-color: var(--white);
+    color: var(--red);
+    border: 0.2rem solid var(--red);
 }
 
 .page_btn_plus {
-    display: flex;
-    justify-content: flex-end;
-    padding-right: 5.6rem;
-    color: #38E54D;
-    font-size: 4.8rem;
+    position:absolute;
+    width:6rem;
+	height:6rem;
+    right: 6rem;
+    bottom:2rem;
+    background-color: #0db88d;
+    border-color: none;
+    color: white;
+    font-size: 9.6rem;
+    line-height: 4rem;
+    border-radius:4rem;
+    text-align:center;
+    box-shadow: 2px 2px 3px #999;
     cursor: pointer;
+    transition:  background-color 1.5s, color 1.5s,border-color 1.5s;
 }
+
+.page_btn_plus:hover {
+    border-color: lightgreen;
+    background-color: white;
+    color:#0db88d;
+}
+
 
 .page_btn_number button:hover {
     background-color: #2192FF;
@@ -56,11 +87,7 @@
     color: #fff;
 }
 
-.page_btn_back button:hover {
-    background-color: #2192FF;
-    border: 0.1rem solid #fff;
-    color: #fff;
-}
+
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
 

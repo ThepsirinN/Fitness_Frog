@@ -16,7 +16,7 @@ SportType.setConfig({
         datasets: [
             {
                 label: 'Users',
-                data: [100],
+                data: [100,50,150,10,30],
                 backgroundColor: QuickChart.getGradientFillHelper('horizontal', [
                     '#25EAE7',
                     '#98FF98',

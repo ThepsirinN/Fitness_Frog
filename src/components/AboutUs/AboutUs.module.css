@@ -150,6 +150,7 @@
   color: black;
   font-size: 19px;
   border: none;
+  transition: background-color 1.5s, color 1.5s;
 }
 
 .AboutUs-Join:hover {

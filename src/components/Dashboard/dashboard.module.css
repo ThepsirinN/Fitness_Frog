@@ -1,11 +1,61 @@
 .dashboard-container {
-  position:relative;
+  position: relative;
   top: 12vh;
   width: 88vw;
-  min-height: auto;
+  min-height: 120rem;
   margin: 0 auto 4rem;
   background-color: #000;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
+}
+
+.dashboard-container-error {
+  position: relative;
+  top: 12vh;
+  width: 88vw;
+  min-height: 80rem;
+  margin: 0 auto 4rem;
+  background-color: #000;
+  font-family: "Poppins", sans-serif;
+}
+
+.loading {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 2vh;
+  max-width: 90vw;
+  margin: 0 auto;
+  text-align: center;
+  color: white;
+  line-height: 12rem;
+}
+
+.loading h1 {
+  font-size: 6.4rem;
+  color: white;
+}
+
+.loading h2 {
+  font-size: 5.6rem;
+  color: white;
+}
+
+.loading button {
+  margin-top: 2rem;
+  border-radius: 4rem;
+  width: 16rem;
+  height: 8rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+  background-color: #98ff98;
+  transition: width 2s, height 2s;
+}
+
+.loading button:hover {
+  width: 24rem;
+  height: 12rem;
 }
 
 /* ========= Profile =========*/
@@ -13,11 +63,12 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  gap:12.8rem;
+  gap: 12.8rem;
   margin-bottom: 8rem;
 }
 
-.profile-sec-img,.profile-sec-info {
+.profile-sec-img,
+.profile-sec-info {
   display: flex;
   flex-direction: column;
   row-gap: 1.6rem;
@@ -31,7 +82,7 @@
   row-gap: 2rem;
 }
 
-.profile-img img{
+.profile-img img {
   border-radius: 10rem;
   width: 12rem;
   height: 12rem;
@@ -39,7 +90,7 @@
 
 .btnProfile {
   font-size: 1.6rem;
-  padding: .4rem;
+  padding: 0.4rem;
   font-weight: bold;
   width: 6vw;
   border-radius: 1.2rem;
@@ -87,6 +138,13 @@
   width: 32rem;
   height: 36rem;
   border-radius: 2rem;
+  transition: width 1.5s, height 1.5s;
+
+}
+
+.box_inside:hover {
+  width: 36rem;
+  height: 40rem;
 }
 
 .box_inside .frame {
@@ -123,7 +181,13 @@
   flex-direction: column;
 }
 
-.bar img{
+.sportbar {
+  height: 16rem;
+  width: 88vw;
+  margin-bottom: 4rem;
+}
+
+.bar img {
   max-width: 100%;
 }
 
@@ -155,26 +219,6 @@
   margin-bottom: 10px;
 }
 
-.swimming {
-  background-color: #25eae7;
-}
-
-.walking {
-  background-color: #98ff98;
-}
-
-.hiking {
-  background-color: #eef221;
-}
-
-.bicycling {
-  background-color: #ff8c01;
-}
-
-.running {
-  background-color: #ff0000;
-}
-
 .sportColor-in {
   display: flex;
   flex-direction: column;
@@ -182,14 +226,10 @@
   color: #fff;
 }
 
-.sportColor-in p {
-  font-size: 1.6rem;
-}
-
 /* ========= button ========= */
 
-.btn-act{
-  position:relative;
+.btn-act {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -203,6 +243,11 @@
   padding: 1.2rem;
   font-weight: bold;
   margin-top: 5rem;
+  transition: background-color 1.5s
+}
+
+.btn-act button:hover {
+  background-color: orange;
 }
 
 @media screen and (min-width: 320px) and (max-width: 479px) {
@@ -214,28 +259,52 @@
     justify-content: center;
   }
 
+  .loading h1 {
+    font-size: 2.4rem;
+    color: white;
+  }
+
+  .loading h2 {
+    font-size: 2rem;
+    color: white;
+  }
+
+  .loading button {
+    margin-top: 2rem;
+    border-radius: 4rem;
+    width: 8rem;
+    height: 4rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background-color: #98ff98;
+    transition: width 2s, height 2s;
+  }
+
+  .loading button:hover {
+    width: 12rem;
+    height: 6rem;
+  }
+
   .profile-sec-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-content: center;
-    column-gap:2rem;
-    
+    column-gap: 2rem;
   }
 
   .profile-sec-info p {
     font-size: 1.6rem;
   }
 
-  .goal-sec{
+  .goal-sec {
     display: grid;
-    grid-auto-flow:column;
+    grid-auto-flow: column;
     grid-column: 1/3;
     justify-content: center;
     align-items: center;
     column-gap: 3.2rem;
   }
-
 
   .btnProfile {
     font-size: 1.6rem;
@@ -258,7 +327,11 @@
   .box_inside {
     width: 44vw;
     height: 24vh;
+  }
 
+  .box_inside:hover {
+    width: 46vw;
+    height: 26vh;
   }
 
   .box_down {

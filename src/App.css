@@ -17,6 +17,15 @@ body {
 .App {  
   min-height:100%;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+
+button {
+  cursor: pointer;
+}
 .swal2-icon {
   zoom : 1.5;
 }
@@ -42,10 +51,12 @@ body {
 }
 
 .swal-add{
-  zoom: 1;
-  /* width: 12rem; */
-}
+  zoom: .5;
+  font-size: 1.6rem !important;
+  min-width: 28rem !important;
+  max-width: 32rem !important ;
 
+}
 
 .swal2-input option{
   font-size: 1.2rem;
@@ -68,4 +79,29 @@ body {
   color: #000;
   font-size: .8rem;
   width: 8rem;
+}
+
+@media screen and (max-width: 480px) {
+  .add-modal label{
+    font-size: .6rem;
+  }
+
+  .swal-add{
+    zoom: .25;
+    font-size: 1.6rem !important;
+    min-width: 24rem !important ;
+    max-width: 40rem !important ;
+  }
+}
+
+@media screen and (min-width:481px) and (max-width: 700px) {
+  .add-modal label{
+    font-size: .6rem;
+  }
+
+  .swal-add{
+    font-size: 1.2rem !important;
+    min-width: 16rem !important ;
+    max-width: 20rem !important ;
+  }
 }

@@ -1,6 +1,6 @@
 .footer {
-    position: relative;
-    top:12vh;
+    position: sticky;
+    top:132rem;
     height: auto;
     display: flex;
     flex-direction: column;

@@ -1,7 +1,5 @@
-import { Routes, Route, redirect } from "react-router-dom";
-import axios from "axios";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Cookies from "universal-cookie";
 import "./App.css";
 import Nav from "./components/Nav";
 import Footer from "./components/Footer";
@@ -12,74 +10,35 @@ import Register from "./components/Register";
 import AddProfile from "./components/AddProfile";
 import Login from "./components/Login";
 import Dashboard from "./components/Dashboard";
-import EditProfile from "./components/EditProfile"
+import EditProfile from "./components/EditProfile";
 import Activitiy from "./components/Activity";
+import { MyAuthContext } from "./context/AuthContext";
 import { PageContextProvider } from "./context/PageContext";
 
 const App = () => {
-  const [token, setToken] = useState(null);
-  const [user, setUser] = useState(null);
-  // isLoading ป้องกันโหลดหน้าแล้วจอดำ
-  /* const [isLoading, setIsLoading] = useState(true) */
+  const { isAuth, isLoading, isLoadingAuth } = MyAuthContext();
+  const navigate = useNavigate();
 
   useEffect(() => {
     let tid = setTimeout(() => {
-      const cookies = new Cookies();
-      const checkToken = async () => {
-        try {
-          let response = await axios.get(
-            process.env.REACT_APP_BACKEND_ROUTE + "/user/checkAuth",
-            {
-              headers: {
-                Authorization: `Bearer ${cookies.get("refreshToken")}`,
-                user: cookies.get("user"),
-              },
-            }
-          );
-          if (response) {
-            if (response.data.status) {
-              cookies.set("refreshToken", response.data.refreshToken.key, {
-                path: "/",
-                expires: new Date(Date.now() + response.data.refreshToken.exp),
-              });
-              cookies.set("user", response.data.userHash, {
-                path: "/",
-                expires: new Date(Date.now() + response.data.refreshToken.exp),
-              });
-              setToken(cookies.get("refreshToken"));
-              setUser(cookies.get("user"));
-            }
-          }
-        } catch (e) {
-          cookies.remove("refreshToken");
-          cookies.remove("user");
-          console.log(e);
-        }
-      };
-      if (cookies.get("refreshToken") && cookies.get("user")) {
-        checkToken();
+      const arrPath = ["/", "/login", "/register", "/about-us"];
+      if (isAuth && arrPath.includes(window.location.pathname)) {
+        navigate("/dashboard");
+      } else if (!isAuth && !arrPath.includes(window.location.pathname)) {
+        navigate("/");
       }
-      
-    }, 1000);
+    }, 100);
     return () => {
-      clearInterval(tid);
+      clearTimeout(tid);
     };
-  }, []);
-
-  /*   useEffect(() => {
-    if (token && user) {
-      redirect("/dashboard", 302);
-    } else {
-      redirect("/", 302);
-    }
-  }, [token, user]); */
+  }, [isAuth]);
 
   return (
     <div className="App">
-      {!token && !user && (
+      {!isAuth && !isLoading && (
         <Routes>
           {/* Landing Page */}
-          <Route path="" element={<Landing />} />
+          <Route path="/" element={<Landing />} />
           {/* About-Us Page */}
           <Route path="about-us" element={<AboutUs />} />
           {/* Register Page */}
@@ -106,7 +65,7 @@ const App = () => {
         </Routes>
       )}
 
-      {token && user && (
+      {isAuth && !isLoadingAuth && (
         <Routes>
           {/* Add-Profile Page */}
           <Route
@@ -114,7 +73,6 @@ const App = () => {
             element={
               <>
                 <AddProfile />
-                <Footer />
               </>
             }
           />
@@ -124,9 +82,7 @@ const App = () => {
             path="dashboard"
             element={
               <>
-                <Nav />
-                  <Dashboard />
-                <Footer />
+                <Dashboard />
               </>
             }
           />
@@ -135,21 +91,16 @@ const App = () => {
             path="edit-profile"
             element={
               <>
-                <Nav />
                 <EditProfile />
-                <Footer />
               </>
             }
           />
-
-
 
           {/* Activity Page */}
           <Route
             path="activity"
             element={
               <>
-                <Nav />
                 <PageContextProvider>
                   <Activitiy />
                 </PageContextProvider>

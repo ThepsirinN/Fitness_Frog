@@ -63,7 +63,7 @@
 .register-title {
   background-color: var(--orange);
   width: 60rem;
-  height: 10rem;
+  height: 12rem;
   margin-bottom: 6.4rem;
 }
 
@@ -121,7 +121,7 @@
   position: relative;
   display: flex;
   flex-direction: row;
-  margin: 4rem 0 0 0;
+  margin: .8rem 0 0 0;
 }
 .register-button button {
   width: 18rem;
@@ -133,6 +133,39 @@
 .register-button #btn-register-id {
   font-size: 3.2rem;
   background-color: var(--tan);
+  color: #000000;
+  border-radius: 1rem;
+  padding: .4rem 1rem;
+  transition: background-color 1s,color 1s;
+
+}
+
+.register-button #btn-register-id:hover {
+  background-color: var(--orange);
+  color: white;
+}
+
+.home-btn {
+  position: fixed;
+  width: 6rem;
+  height: 6rem;
+  right: 6rem;
+  bottom: 15rem;
+  background-color: #7ed73e;
+  border-color: none;
+  color: white;
+  font-size: 5.4rem;
+  line-height: 4rem;
+  border-radius: 4rem;
+  text-align: center;
+  box-shadow: 2px 2px 3px #999;
+  cursor: pointer;
+  transition: background-color 1.5s, color 1.5s, border-color 1.5s;
+}
+
+.home-btn:hover {
+  border-color: lightgreen;
+  background-color: white;
   color: #000000;
 }
 
@@ -153,7 +186,7 @@
 
   .register-title {
     width: 100vw;
-    height: 10rem;
+    height: 11rem;
     margin-bottom: 6.4rem;
   }
 
@@ -163,5 +196,10 @@
 
   .form-group input::placeholder {
     font-size: 1.6rem;
+  }
+
+  .home-btn {
+    right: 2rem;
+    bottom: 6rem;
   }
 }

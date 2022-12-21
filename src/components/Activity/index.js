@@ -1,7 +1,8 @@
 // import { BroserRouter as Router, Routes, Route } from "react-router-dom";
 import styles from "./activity.module.css";
 import Card from "../Card/index";
-import FooterNotFull from "../FooterNotFull";
+import Nav from "../Nav";
+import Footer from "../Footer";
 import Pagination from "../Pagination/index";
 import { useMediaQuery } from "react-responsive";
 import { MyPageContext } from "../../context/PageContext";
@@ -52,6 +53,9 @@ const Activity = () => {
     testArr[0].surname => "sonteen"
   */
   return (
+    <>
+    <Nav />
+    
     <div className={styles["activity-container"]}>
       <div className={styles["card_header"]}>
         <h1>My Activity</h1>
@@ -126,8 +130,9 @@ const Activity = () => {
         )}
       </div>
       <Pagination />
-      <FooterNotFull />
-    </div>
+      </div>
+      <Footer />
+      </>
   );
 };
 

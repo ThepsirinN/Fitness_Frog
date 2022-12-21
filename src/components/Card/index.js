@@ -1,10 +1,4 @@
 import styles from "./card.module.css";
-import {
-  FaEdit,
-  FaTrashAlt,
-  FaTimesCircle,
-  FaCheckCircle,
-} from "react-icons/fa";
 import { useMediaQuery } from "react-responsive";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
@@ -23,7 +17,7 @@ const Card = (props) => {
     query: "(min-width: 320px) and (max-width: 819px)",
   });
   const isDesktop = useMediaQuery({ minWidth: 820 });
-  const activity = ["Running", "Walking", "Swimming", "Hiking", "Cycling"];
+  const activity = ["Swimming", "Walking", "Hiking", "Cycling", "Running"];
   const status = ["pending", "Completed"];
   const startDate = new Date(props.startDate);
   const startDateString = startDate.toLocaleString();
@@ -37,6 +31,7 @@ const Card = (props) => {
   const { setIsChangeValue, data } = MyPageContext();
 
   const cookies = new Cookies();
+
   const handleOnClickDelete = async (e) => {
     e.preventDefault();
     const activitykey = e.target.getAttribute("keys");
@@ -62,7 +57,6 @@ const Card = (props) => {
             }
           )
           .then((response) => {
-            console.log(response);
             if (response) {
               setIsChangeValue(true);
               Swal.fire("Deleted!", "Your file has been deleted.", "success");
@@ -103,7 +97,7 @@ const Card = (props) => {
         html: (
           <div className="add-modal">
             <div className="modal-input-group">
-              <label htmlFor="swal-input2">Activity-Name </label>
+              <label htmlFor="swal-input2">Activity-Name* </label>
               <input
                 id="swal-input1"
                 className="swal2-input swal-add"
@@ -113,7 +107,7 @@ const Card = (props) => {
               />
             </div>
             <div className="modal-input-group">
-              <label htmlFor="swal-input2">Description </label>
+              <label htmlFor="swal-input2">Description* </label>
               <textarea
                 id="swal-input2"
                 className="swal2-input swal-add"
@@ -123,23 +117,23 @@ const Card = (props) => {
               ></textarea>
             </div>
             <div className="modal-input-group">
-              <label htmlFor="swal-input3">Sport type </label>
+              <label htmlFor="swal-input3">Sport type* </label>
               <select
                 id="swal-input3"
                 className="swal2-input swal-add"
                 defaultValue={editArrItem[0].activityType}
                 required
               >
-                <option value={0}>Please select activity type</option>
-                <option value={1}>Running</option>
+                <option value={0}>Please select activity type* </option>
+                <option value={1}>Swimming</option>
                 <option value={2}>Walking</option>
-                <option value={3}>Swimming</option>
-                <option value={4}>Hiking</option>
-                <option value={5}>Cycling</option>
+                <option value={3}>Hiking</option>
+                <option value={4}>Cycling</option>
+                <option value={5}>Running</option>
               </select>
             </div>
             <div className="modal-input-group">
-              <label htmlFor="swal-input4">Start Date </label>
+              <label htmlFor="swal-input4">Start Date* </label>
               <input
                 id="swal-input4"
                 type="datetime-local"
@@ -149,7 +143,7 @@ const Card = (props) => {
               />
             </div>
             <div className="modal-input-group">
-              <label htmlFor="swal-input5">End Date </label>
+              <label htmlFor="swal-input5">End Date* </label>
               <input
                 id="swal-input5"
                 type="datetime-local"
@@ -158,6 +152,7 @@ const Card = (props) => {
                 required
               />
             </div>
+            <p className="is-required-modal">* is required</p>
           </div>
         ),
         focusConfirm: false,

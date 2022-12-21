@@ -24,7 +24,7 @@ const Pagination = () => {
         html: (
           <div className="add-modal">
             <div className="modal-input-group">
-              <label htmlFor="swal-input2">Activity-Name </label>
+              <label htmlFor="swal-input2">Activity-Name* </label>
               <input
                 id="swal-input1"
                 className="swal2-input swal-add"
@@ -33,7 +33,7 @@ const Pagination = () => {
               />
             </div>
             <div className="modal-input-group">
-              <label htmlFor="swal-input2">Description </label>
+              <label htmlFor="swal-input2">Description* </label>
               <textarea
                 id="swal-input2"
                 className="swal2-input swal-add"
@@ -42,22 +42,22 @@ const Pagination = () => {
               ></textarea>
             </div>
             <div className="modal-input-group">
-              <label htmlFor="swal-input3">Sport type </label>
+              <label htmlFor="swal-input3">Sport type* </label>
               <select
                 id="swal-input3"
                 className="swal2-input swal-add"
                 required
               >
-                <option value={0}>Please select activity type</option>
-                <option value={1}>Running</option>
+                <option value={0}>Please select activity type* </option>
+                <option value={1}>Swimming</option>
                 <option value={2}>Walking</option>
-                <option value={3}>Swimming</option>
-                <option value={4}>Hiking</option>
-                <option value={5}>Cycling</option>
+                <option value={3}>Hiking</option>
+                <option value={4}>Cycling</option>
+                <option value={5}>Running</option>
               </select>
             </div>
             <div className="modal-input-group">
-              <label htmlFor="swal-input4">Start Date </label>
+              <label htmlFor="swal-input4">Start Date* </label>
               <input
                 id="swal-input4"
                 type="datetime-local"
@@ -66,7 +66,7 @@ const Pagination = () => {
               />
             </div>
             <div className="modal-input-group">
-              <label htmlFor="swal-input5">End Date </label>
+              <label htmlFor="swal-input5">End Date* </label>
               <input
                 id="swal-input5"
                 type="datetime-local"
@@ -74,6 +74,8 @@ const Pagination = () => {
                 required
               />
             </div>
+            <p className="is-required-modal">* is required</p>
+
           </div>
         ),
         focusConfirm: false,
@@ -166,9 +168,17 @@ const Pagination = () => {
               pageArr.push(i);
             }
             setPageValue(1);
-            if(localStorage.getItem("Oldpage")){
+            if (localStorage.getItem("Oldpage")-1 === response.data.numPage){
+              localStorage.setItem("Oldpage",localStorage.getItem("Oldpage")-1)
+              setPageValue(localStorage.getItem("Oldpage")-1)
+            }
+            else if(localStorage.getItem("Oldpage") > response.data.numPage){
+              localStorage.setItem("Oldpage",1)
+              setPageValue(1)
+            }else if(localStorage.getItem("Oldpage")){
               setPageValue(localStorage.getItem("Oldpage"))
-            }else{
+            }
+            else{
               localStorage.setItem("Oldpage",1)
             }
             setIsLoading(false);

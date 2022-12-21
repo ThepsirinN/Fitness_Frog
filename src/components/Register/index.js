@@ -5,7 +5,7 @@ import Cookies from "universal-cookie";
 import { Link } from "react-router-dom";
 import styles from "./register.module.css";
 import logo from "./img/logo-fitness-fog.png";
-import { FaUser, FaLock } from "react-icons/fa";
+import { FaUser, FaLock, FaHome } from "react-icons/fa";
 import { HiOutlineMail } from "react-icons/hi";
 
 const Register = () => {
@@ -81,7 +81,7 @@ const Register = () => {
               type="email"
               name="email-register"
               id="email-register-id"
-              placeholder="E-mail"
+              placeholder="E-mail*"
               autoComplete="off"
               value={email}
               onChange={({ target }) => {
@@ -100,7 +100,7 @@ const Register = () => {
               type="text"
               name="username-register"
               id="username-register-id"
-              placeholder="Username"
+              placeholder="Username*"
               autoComplete="off"
               value={username}
               onChange={({ target }) => {
@@ -119,7 +119,7 @@ const Register = () => {
               type="password"
               name="password-register"
               id="password-register-id"
-              placeholder="Password"
+              placeholder="Password*"
               autoComplete="off"
               value={pass}
               onChange={({ target }) => {
@@ -138,7 +138,7 @@ const Register = () => {
               type="password"
               name="confirm-password-register"
               id="confirm-password-register-id"
-              placeholder="Confirm Password"
+              placeholder="Confirm Password*"
               autoComplete="off"
               value={confirmPass}
               onChange={({ target }) => {
@@ -146,6 +146,7 @@ const Register = () => {
               }}
               required
             />
+            <p style={{textAlign:"right",color:"#ffffffd9",fontSize:"1.2rem",marginTop:"-2rem",marginBottom:"1rem"}}>* is required</p>
           </div>
           <section className={styles["register-button"]}>
             <button type="submit" id={styles["btn-register-id"]}>
@@ -153,6 +154,11 @@ const Register = () => {
             </button>
           </section>
         </form>
+        <Link to={"/"} style={{ textDecoration: "none" }}>
+          <button className={styles["home-btn"]}>
+            <FaHome />
+          </button>
+        </Link>
       </main>
     </div>
   );

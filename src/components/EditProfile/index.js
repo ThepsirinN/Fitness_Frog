@@ -7,12 +7,14 @@ import {
   FaWeight,
   FaCalendarAlt,
   FaBullseye,
-  FaCommentsDollar,
 } from "react-icons/fa";
 import Cookies from "universal-cookie";
 import GetUserData from "../../hook/userDetail/GetProfileDataHook";
 import axios from "axios";
 import Swal from "sweetalert2";
+import Nav from "../Nav";
+import FooterNotFull from "../FooterNotFull";
+import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 const EditProfile = () => {
@@ -31,22 +33,21 @@ const EditProfile = () => {
 
   useEffect(() => {
     let tid = setTimeout(() => {
+      if (error) {
+        return window.location.assign("./add-profile");
+      }
       setFullName(response.fullName);
       setHeight(response.height);
       setWeight(response.weight);
       setGender({ value: response.gender });
       setAge(response.DOB);
       setGoal(response.goal);
-    }, 100);
+    }, 1000);
     return () => {
-      clearTimeout(tid)
-    }
+      clearTimeout(tid);
+    };
   }, [loading]);
 
-  const handleOnclickBack = (e) => {
-    e.preventDefault()
-    return window.location.assign("./dashboard");
-  }
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
@@ -62,7 +63,6 @@ const EditProfile = () => {
           height,
           weight,
           goal,
-          image: "1231as5d1",
         }
       );
       if (response) {
@@ -97,9 +97,9 @@ const EditProfile = () => {
   return (
     !loading && (
       <>
-        <div className={styles["img-bg"]}></div>
+      <Nav/>
         <div className={styles["edit-profile"]}>
-          <h1 className={styles["Mobile"]}>Add Profile</h1>
+          <h1 className={styles["Mobile"]}>Edit Profile</h1>
           <div className={styles["pic-edit"]}>
             <img
               src={imgAvatar}
@@ -110,9 +110,9 @@ const EditProfile = () => {
             <button className="edit-btn">Edit Profile Picture</button>
           </div>
           <form className={styles["user-detail"]} onSubmit={handleOnSubmit}>
-            <h1 className={styles["username"]}>{response.fullName}</h1>
+            <h1 className={styles["username"]}>Hi {response.fullName.toUpperCase()}</h1>
             <div className={styles["form-group"]}>
-              <label htmlFor="edit-fullname-id">Fullname</label>
+              <label htmlFor="edit-fullname-id">Fullname*</label>
               <FaUser
                 className={styles["icon"]}
                 style={{ color: "#ffffffd9" }}
@@ -129,7 +129,7 @@ const EditProfile = () => {
               />
             </div>
             <div className={styles["form-group"]}>
-              <label htmlFor="edit-height-id">Height (cm.)</label>
+              <label htmlFor="edit-height-id">Height (cm.)*</label>
               <FaRuler
                 className={styles["icon"]}
                 style={{ color: "#ffffffd9" }}
@@ -146,7 +146,7 @@ const EditProfile = () => {
               />
             </div>
             <div className={styles["form-group"]}>
-              <label htmlFor="edit-gender-id">Gender</label>
+              <label htmlFor="edit-gender-id">Gender*</label>
               <FaVenusMars
                 className={styles["icon"]}
                 style={{ color: "#ffffffd9" }}
@@ -165,7 +165,7 @@ const EditProfile = () => {
               </select>
             </div>
             <div className={styles["form-group"]}>
-              <label htmlFor="edit-weight-id">Weight (kg.)</label>
+              <label htmlFor="edit-weight-id">Weight (kg.)*</label>
               <FaWeight
                 className={styles["icon"]}
                 style={{ color: "#ffffffd9" }}
@@ -182,7 +182,7 @@ const EditProfile = () => {
               />
             </div>
             <div className={styles["form-group"]}>
-              <label htmlFor="edit-age-id">Date Of Birth</label>
+              <label htmlFor="edit-age-id">Date Of Birth*</label>
               <FaCalendarAlt
                 className={styles["icon"]}
                 style={{ color: "#ffffffd9" }}
@@ -200,7 +200,7 @@ const EditProfile = () => {
               <span>age</span>
             </div>
             <div className={styles["form-group"]}>
-              <label htmlFor="edit-goal-id">My Goal (Days)</label>
+              <label htmlFor="edit-goal-id">My Goal (Days)*</label>
               <FaBullseye
                 className={styles["icon"]}
                 style={{ color: "#ffffffd9" }}
@@ -215,13 +215,21 @@ const EditProfile = () => {
                 }}
                 required
               />
-            </div>
+              </div>
+              <p style={{textAlign:"right",color:"#ffffffd9",fontSize:"1.2rem"}}>* is required</p>
             <div className={styles["btn-sub"]}>
-              <button onClick={handleOnclickBack} className={styles["back-btn"]}>Back</button>
-              <button className={styles["save-btn"]}>Save</button>
+            <button className={styles["save-btn"]}>Save</button>
+            <Link to={"/dashboard"} style={{ textDecoration: "none" }}>
+              <button
+                className={styles["back-btn"]}
+              >
+                Back
+              </button>
+            </Link>
             </div>
           </form>
         </div>
+        <FooterNotFull/>
       </>
     )
   );

@@ -62,7 +62,7 @@ const AboutUs = () => {
           </div>
           <Link to={"../register"} style={{ textDecoration: "none" }}>
           <div className={styles["AboutUs-Button"]}>
-            <div className={styles["AboutUs-Join"]}>Join now</div>
+            <button className={styles["AboutUs-Join"]}>Join now</button>
             </div>
           </Link>
         </div>

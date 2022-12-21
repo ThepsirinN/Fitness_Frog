@@ -1,7 +1,7 @@
 .footer {
-    position: absolute;
+    position: sticky;
     bottom: 0;
-    height: 12vh;
+    height: 13vh;
     display: flex;
     flex-direction: column;
     font-family: 'Poppins', sans-serif;

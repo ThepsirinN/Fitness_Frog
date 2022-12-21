@@ -9,12 +9,16 @@ const Landing = () => {
       {/*navbar start*/}
       <div className={styles["Landing-Nav"]}>
         <div className={styles["Landing-Nav-left"]}>
-          <img
-            className={styles["Landing-logo"]}
-            src={require("./img/logo-fitness-fog.png")}
-            alt="Fitness-Frog-Logo"
-          />
-          <div className={styles["Landing-logo-p"]}>FITNESS FROG</div>
+          <Link to={"/"} style={{ textDecoration: "none" }}>
+            <img
+              className={styles["Landing-logo"]}
+              src={require("./img/logo-fitness-fog.png")}
+              alt="Fitness-Frog-Logo"
+            />
+          </Link>
+          <Link to={"/"} style={{ textDecoration: "none" }}>
+            <div className={styles["Landing-logo-p"]}>FITNESS FROG</div>
+          </Link>
         </div>
         <div className={styles["Landing-Nav-right"]}>
           <Link to={"./about-us"} style={{ textDecoration: "none" }}>

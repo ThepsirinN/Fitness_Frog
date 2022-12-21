@@ -30,6 +30,7 @@
 
 .active-btn {
     background-color: #fff !important;
+    color: #000 !important;
 }
 
 .page_btn_back {
@@ -123,12 +124,10 @@
     }
 
     .page_btn_plus {
-        display: flex;
-        justify-content: flex-end;
-        margin-top: 1.6rem;
-        padding-right: 2.4rem;
-        color: #38E54D;
-        font-size: 3.2rem;
+        position:fixed;
+        right: 6rem;
+        bottom:8rem;
+        zoom:.75;
         cursor: pointer;
     }
 }

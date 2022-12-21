@@ -20,9 +20,10 @@ const GetUserData = (user, refreshToken) => {
         if (res.data.data) {
           setLoading(false);
           setResponse({ ...res.data.data, DOB : res.data.data.DOB.slice(0,-14)}); // slice for YYYY-MM-DDTxxxxxxxxxxxxxx
+        }else{
+          setError(true);
         }
       }
-      setError(null);
     } catch (err) {
       setError(err);
     } 
@@ -31,7 +32,7 @@ const GetUserData = (user, refreshToken) => {
   useEffect(() => {
     let tid = setTimeout(() => {
       fetchData();
-    }, 5);
+    }, 1000);
     return ()=>{
       clearTimeout(tid)
     }

@@ -11,16 +11,6 @@ const Footer = () => {
       <footer className={styles["footer"]}>
         {/* <!-- Upper footer --> */}
         <div className={styles["footer_info"]}>
-          <form className={styles["footer_form"]}>
-            <button className="btn btn-lg btn-primary">subscribe</button>
-            <input
-              className={styles["form-control form-control-lg"]}
-              type="email"
-              name="email"
-              placeholder="Your email here"
-            />
-          </form>
-
           <div className={styles["footer_follow"]}>
             <h3 className={styles["footer_follow_text"]}>FOLLOW US</h3>
 

@@ -1,5 +1,6 @@
 .card_data {
     background-color: #ff8c01;
+    height: 44rem;
     padding: 1.6rem 2.4rem;
     border-radius: 3.2rem;
     display: flex;
@@ -8,6 +9,13 @@
     line-height: 3.2rem;
     min-height: 32rem;
     width: 32rem;
+    transition: height 1.5s, width 1.5s;
+}
+
+.card_data:hover{
+    width: 36rem;
+    height: 48rem;
+    
 }
 
 .card_data strong{ 
@@ -22,6 +30,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.card_head h1{
+    text-decoration: underline;
 }
 
 .card_head_icon {
@@ -111,6 +123,7 @@ label:after { content: " : " }
         background-color: #ff8c01;
         padding: 1.6rem 1.6rem;
         border-radius: 2.4rem;
+        height: 36rem;
         display: flex;
         flex-wrap: wrap;
         flex-direction: column;

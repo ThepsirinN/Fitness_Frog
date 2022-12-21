@@ -1,4 +1,5 @@
-import "./nav.css";
+import styles from "./nav.module.css";
+import frog from "./img/frog.png";
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 import { CgMenuGridR } from "react-icons/cg";
@@ -18,8 +19,8 @@ const Nav = () => {
   const myFunction = (e) => {
     e.preventDefault();
     if (navMobile === "none") {
-      setNavMobile("block");
-    } else if ("block") {
+      setNavMobile("flex");
+    } else if ("flex") {
       setNavMobile("none");
     }
   };
@@ -43,50 +44,56 @@ const Nav = () => {
 
   const mobileJSX = (
     <div>
-      <nav className="navbar navbar-dark bg-dark">
-        <div className="welcome">
-          <h1>Fitness Frog</h1>
+      <nav className={`${styles["navbar"]} ${styles["bg-dark"]}`}>
+        <div className={styles["welcome"]}>
+          <Link to={"/dashboard"} style={{ textDecoration: "none" }}>
+            <h1>Fitness Frog</h1>
+            <img src={frog} alt="frog-logo" />
+          </Link>
           {/* name from Input {name}*/}
         </div>
         {/* "Hamburger menu" / "Bar icon" to toggle the navigation links */}
-        <a href="/" className="menu-icon" onClick={myFunction}>
+        <a href="/" className={styles["menu-icon"]} onClick={myFunction}>
           <CgMenuGridR
-            className="mobile-menu"
+            className={styles["mobile-menu"]}
             style={{ color: "#fff", width: "2rem", height: "2rem" }}
           />
         </a>
-        <div className="btn-mobile" style={{ display: navMobile }}>
-          <Link to={"/dashboard"} style={{ textDecoration: "none" }}>
-            <button type="button" className="btn btn-outline-light btnNav">
-              HOME
-            </button>
-          </Link>
-          <button
-            type="button"
-            className="btn btn-outline-light btnNav"
-            onClick={handleOnclickLogout}
-          >
-            LOGOUT
-          </button>
-        </div>
       </nav>
+      <div className={styles["btn-mobile"]} style={{ display: navMobile }}>
+        <Link to={"/dashboard"} style={{ textDecoration: "none" }}>
+          <button type="button" className={styles["btnNav"]}>
+            HOME
+          </button>
+        </Link>
+        <button
+          type="button"
+          className={styles["btnNav"]}
+          onClick={handleOnclickLogout}
+        >
+          LOGOUT
+        </button>
+      </div>
     </div>
   );
   const DestopJSX = (
     <div>
-      <nav className="navbar navbar-dark bg-dark">
-        <div className="welcome">
-          <h1>Fitness Frog</h1> {/* name from Input {name}*/}
-        </div>
-        <div className="btn-group">
+      <nav className={`${styles["navbar"]} ${styles["bg-dark"]}`}>
+        <div className={styles["welcome"]}>
           <Link to={"/dashboard"} style={{ textDecoration: "none" }}>
-            <button type="button" className="btn btn-outline-light btnNav">
+            <h1>Fitness Frog</h1> {/* name from Input {name}*/}
+            <img src={frog} alt="frog-logo" />
+          </Link>
+        </div>
+        <div className={styles["btn-group"]}>
+          <Link to={"/dashboard"} style={{ textDecoration: "none" }}>
+            <button type="button" className={styles["btnNav"]}>
               HOME
             </button>
           </Link>
           <button
             type="button"
-            className="btn btn-outline-light btnNav"
+            className={styles["btnNav"]}
             onClick={handleOnclickLogout}
           >
             LOGOUT

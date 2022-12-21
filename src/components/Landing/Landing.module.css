@@ -116,7 +116,9 @@
   border-radius: 3px;
   font-family: "Roboto";
   font-size: 32px;
+  transition: background-color 1.5s, color 1.5s;
 }
+
 
 .Landing-Login {
   background-color: #ff8c01;
@@ -187,13 +189,25 @@
   bottom: 0;
   left: 55%;
 }
-
 .Landing-Man {
   height: 100%;
   position: absolute;
   bottom: 0;
   left: 55%;
+  transition: height 1.5s;
+  animation: mymovedown 1.5s;
+  animation-iteration-count: 3;
 }
+
+.Landing-Man:hover   {
+  height:105%;
+}
+
+@keyframes mymovedown {
+  from {height: 105%;}
+  to {height: 100%;}
+}
+
 
 /*landing right end*/
 

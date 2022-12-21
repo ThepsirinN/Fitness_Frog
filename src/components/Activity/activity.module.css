@@ -12,10 +12,10 @@
 }
 
 .activity-container {
-    height: 100vh;
-    top: 7vh;
     position: relative;
-    background: url(./image/run.png) no-repeat center center fixed; 
+    min-height: 94.5rem;
+    top: 0;
+    background-image: url("./image/run.png"); 
     background-size: cover;
 }
 
@@ -78,7 +78,10 @@ button > p {
 } */
 
 @media screen and (min-width: 320px) and (max-width: 819px) {
- 
+    .activity-container{
+        min-height: 0;
+        max-height: 88rem;
+    }
     .card-container{
         display: flex;
         text-align: center;

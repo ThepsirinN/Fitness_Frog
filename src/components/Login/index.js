@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import styles from "./Login.module.css";
 import { Link } from "react-router-dom";
 import logo from "./img/logo-fitness-fog.png";
-import { FaUser, FaLock } from "react-icons/fa";
+import { FaUser, FaLock, FaHome } from "react-icons/fa";
 import Cookies from "universal-cookie";
 
 const Login = () => {
@@ -17,7 +17,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const responseUser = await axios.post(
-        process.env.REACT_APP_BACKEND_ROUTE+"/user/checkUser",
+        process.env.REACT_APP_BACKEND_ROUTE + "/user/checkUser",
         {
           username: username,
           pass: pass,
@@ -25,8 +25,14 @@ const Login = () => {
       );
 
       if (responseUser) {
-        cookies.set("refreshToken", responseUser.data.refreshToken.key , {path:"/", expires:new Date(Date.now()+responseUser.data.refreshToken.exp)})
-        cookies.set("user", responseUser.data.refreshToken.user , {path:"/", expires:new Date(Date.now()+responseUser.data.refreshToken.exp)})
+        cookies.set("refreshToken", responseUser.data.refreshToken.key, {
+          path: "/",
+          expires: new Date(Date.now() + responseUser.data.refreshToken.exp),
+        });
+        cookies.set("user", responseUser.data.refreshToken.user, {
+          path: "/",
+          expires: new Date(Date.now() + responseUser.data.refreshToken.exp),
+        });
         Swal.fire({
           title: `${responseUser.data.msg}!`,
           icon: "success",
@@ -78,7 +84,7 @@ const Login = () => {
               type="text"
               name="username-login"
               id="username-login-id"
-              placeholder="Username"
+              placeholder="Username*"
               autoComplete="off"
               value={username}
               onChange={({ target }) => {
@@ -96,7 +102,7 @@ const Login = () => {
               type="password"
               name="password-login"
               id="password-login-id"
-              placeholder="Password"
+              placeholder="Password*"
               autoComplete="off"
               value={pass}
               onChange={({ target }) => {
@@ -104,16 +110,10 @@ const Login = () => {
               }}
               required
             />
+            <p style={{textAlign:"right",color:"#ffffffd9",fontSize:"1.2rem",marginTop:"-3rem",marginBottom:"2rem"}}>* is required</p>
           </div>
-
           <section className={styles["login-button"]}>
-            <button
-              type="submit"
-              className="text-white"
-              id={styles["btn-forgot-id"]}
-            >
-              Forgot Password
-            </button>
+              
             <button
               type="submit"
               className="text-white"
@@ -123,6 +123,11 @@ const Login = () => {
             </button>
           </section>
         </form>
+        <Link to={"/"} style={{ textDecoration: "none" }}>
+          <button className={styles["home-btn"]}>
+            <FaHome />
+          </button>
+        </Link>
       </main>
     </div>
   );

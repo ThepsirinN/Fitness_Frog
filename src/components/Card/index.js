@@ -16,8 +16,9 @@ const Card = (props) => {
   const isMobile = useMediaQuery({
     query: "(min-width: 320px) and (max-width: 819px)",
   });
+  
   const isDesktop = useMediaQuery({ minWidth: 820 });
-  const activity = ["Swimming", "Walking", "Hiking", "Cycling", "Running"];
+  const activity = ["Swimming🏊‍♂️", "Walking🚶‍♀️", "Hiking🥾", "Cycling🚴‍♂️", "Running🏃‍♀️"];
   const cardColor = ["#25eae7","#98ff98","#eef221","#ff8c01","#f77fbe"];
   const status = ["Pending⌚", "Completed✅"];
   const startDate = new Date(props.startDate);

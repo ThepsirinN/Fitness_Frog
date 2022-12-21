@@ -18,8 +18,8 @@ const Card = (props) => {
   });
   const isDesktop = useMediaQuery({ minWidth: 820 });
   const activity = ["Swimming", "Walking", "Hiking", "Cycling", "Running"];
-  const cardColor = ["#25eae7","#98ff98","#eef221","#ff8c01","#ff0000"];
-  const status = ["pending", "Completed"];
+  const cardColor = ["#25eae7","#98ff98","#eef221","#ff8c01","#f77fbe"];
+  const status = ["Pending⌚", "Completed✅"];
   const startDate = new Date(props.startDate);
   const startDateString = startDate.toLocaleString();
   const endDate = new Date(props.endDate);

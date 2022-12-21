@@ -139,7 +139,6 @@
   height: 36rem;
   border-radius: 2rem;
   transition: width 1.5s, height 1.5s;
-
 }
 
 .box_inside:hover {
@@ -243,7 +242,7 @@
   padding: 1.2rem;
   font-weight: bold;
   margin-top: 5rem;
-  transition: background-color 1.5s
+  transition: background-color 1.5s;
 }
 
 .btn-act button:hover {
@@ -326,12 +325,12 @@
 
   .box_inside {
     width: 44vw;
-    height: 24vh;
+    height: 30vh;
   }
 
   .box_inside:hover {
     width: 46vw;
-    height: 26vh;
+    height: 32vh;
   }
 
   .box_down {

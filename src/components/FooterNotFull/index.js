@@ -3,9 +3,13 @@ import fb from "./image/fb.png";
 import IG from "./image/IG.png";
 import twitter from "./image/twitter.png";
 import { Link } from "react-router-dom";
+import { MyAuthContext } from "../../context/AuthContext";
+
 
 const FooterNotFull = () => {
   const year = new Date();
+  const {isAuth} = MyAuthContext()
+
   return (
     <>
       <footer className={styles["footer"]}>
@@ -40,9 +44,9 @@ const FooterNotFull = () => {
             <Link to={"/"} style={{ textDecoration: "none" }}>
               <button className={styles["bottom_link"]}>Fitness Frog</button>
             </Link>
-            <Link to={"/about-us"} style={{ textDecoration: "none" }}>
+            {!isAuth && <Link to={"/about-us"} style={{ textDecoration: "none" }}>
               <button className={styles["bottom_link"]}>About Us</button>
-            </Link>
+            </Link>}
             <Link to={"#"} style={{ textDecoration: "none" }}>
               <button className={styles["bottom_link"]}>Privacy Policy</button>
             </Link>

@@ -10,6 +10,7 @@
     "chart.js": "^4.1.1",
     "dotenv": "^16.0.3",
     "jwt-decode": "^3.1.2",
+    "moment-timezone": "^0.5.40",
     "quickchart-js": "^3.1.1",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.0.1",

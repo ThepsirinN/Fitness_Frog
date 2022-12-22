@@ -22,7 +22,7 @@ const Card = (props) => {
   const cardColor = ["#25eae7","#98ff98","#eef221","#ff8c01","#f77fbe"];
   const status = ["Pending⌚", "Completed✅"];
   const startDate = new Date(props.startDate);
-  const startDateString = startDate.toLocaleString("en-GB", {timeZone: "UTC"});
+  const startDateString = startDate.toLocaleString("en-GB", {timeZone: "UTC",hour12: true});
   const endDate = new Date(props.endDate);
   /* const endDateString = endDate.toLocaleString() */
   const minuteDuration = (endDate - startDate) / (60 * 1000);

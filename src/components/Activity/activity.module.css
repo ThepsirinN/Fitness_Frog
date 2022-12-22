@@ -23,6 +23,7 @@
 .card-container{
     display: flex;
     justify-content: space-evenly;
+    min-height: 94.5rem;
     align-items: center;
     margin: 6.4rem 0;
 }

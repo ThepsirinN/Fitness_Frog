@@ -16,13 +16,27 @@ const Card = (props) => {
   const isMobile = useMediaQuery({
     query: "(min-width: 320px) and (max-width: 819px)",
   });
-  
+
   const isDesktop = useMediaQuery({ minWidth: 820 });
-  const activity = ["Swimming🏊‍♂️", "Walking🚶‍♀️", "Hiking🥾", "Cycling🚴‍♂️", "Running🏃‍♀️"];
-  const cardColor = ["#25eae7","#98ff98","#eef221","#ff8c01","#f77fbe"];
+  const activity = [
+    "Swimming🏊‍♂️",
+    "Walking🚶‍♀️",
+    "Hiking🥾",
+    "Cycling🚴‍♂️",
+    "Running🏃‍♀️",
+  ];
+  const cardColor = ["#25eae7", "#98ff98", "#eef221", "#ff8c01", "#f77fbe"];
   const status = ["Pending⌚", "Completed✅"];
   const startDate = new Date(props.startDate);
-  const startDateString = startDate.toLocaleString("en-GB", {timeZone: "UTC",hour12: true});
+  const startDateString = startDate.toLocaleString("en-GB", {
+    timeZone: "UTC",
+    hour12: true,
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    hour: "numeric",
+    minute: "numeric",
+  });
   const endDate = new Date(props.endDate);
   /* const endDateString = endDate.toLocaleString() */
   const minuteDuration = (endDate - startDate) / (60 * 1000);
@@ -262,7 +276,10 @@ const Card = (props) => {
 
   const mobileJSX = (
     <div className={styles["card_plate"]}>
-      <form className={styles["card_data"]} style={{backgroundColor:cardColor[props.activityType - 1]}}>
+      <form
+        className={styles["card_data"]}
+        style={{ backgroundColor: cardColor[props.activityType - 1] }}
+      >
         <div className={styles["card_head"]}>
           <h1>No.{props.number}</h1>
           <div className={styles["card_head_icon"]}>
@@ -313,7 +330,7 @@ const Card = (props) => {
           <strong>Status : </strong>
           <span>{status[props.status]}</span>
           <div className={styles["card_status_btn"]}>
-          <strong>Change Status :</strong>
+            <strong>Change Status :</strong>
             {props.status === 1 && (
               <img
                 src={wrong}
@@ -340,7 +357,10 @@ const Card = (props) => {
 
   const DestopJSX = (
     <div className={styles["card_plate"]}>
-      <form className={styles["card_data"]} style={{backgroundColor:cardColor[props.activityType - 1]}}>
+      <form
+        className={styles["card_data"]}
+        style={{ backgroundColor: cardColor[props.activityType - 1] }}
+      >
         <div className={styles["card_head"]}>
           <h1>No.{props.number}</h1>
           <div className={styles["card_head_icon"]}>

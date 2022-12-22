@@ -19,8 +19,8 @@ const Login = () => {
       const responseUser = await axios.post(
         process.env.REACT_APP_BACKEND_ROUTE + "/user/checkUser",
         {
-          username: username,
-          pass: pass,
+          username: String(username).toLowerCase(),
+          pass: String(pass).toLowerCase(),
         }
       );
 

@@ -22,8 +22,8 @@ const Register = () => {
       const response = await axios.post(
         process.env.REACT_APP_BACKEND_ROUTE+"/user/createUser",
         {
-          username: username,
-          email: email,
+          username: String(username).toLowerCase(),
+          email: String(email).toLowerCase(),
           pass: pass,
           confirmPass: confirmPass,
         }

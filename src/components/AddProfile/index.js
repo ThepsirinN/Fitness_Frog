@@ -48,7 +48,7 @@ const AddProfile = () => {
         {
           username: cookies.get("user"),
           refreshToken: cookies.get("refreshToken"),
-          fullName,
+          fullName:String(fullName).toUpperCase(),
           gender,
           age,
           height,

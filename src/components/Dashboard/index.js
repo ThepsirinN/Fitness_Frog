@@ -171,7 +171,7 @@ const Dashboard = () => {
                     alt="completion-mobile"
                   />
                   <p>% OF COMPLETION</p>
-                  {totalActivitiesLength > 0 && <p style={{fontSize:"1.6rem"}}>{`${successActivity}/${totalActivitiesLength}`}</p>}
+                  {totalActivitiesLength > 0 && <p style={{fontSize:"1.6rem",marginTop:".8rem"}}>{`${successActivity}/${totalActivitiesLength}`}</p>}
                 </div>
               </div>
               <div className={`${styles["box_inside"]} ${styles["box_down"]}`}>
@@ -190,7 +190,7 @@ const Dashboard = () => {
                     alt="day-mobile"
                   />
                   <p>% OF GOAL SUCCESS</p>
-                  {response.goal > 0 && <p style={{fontSize:"1.6rem"}}>{`${totalDateSpend}/${response.goal}`}</p>}
+                  {response.goal > 0 && <p style={{fontSize:"1.6rem",marginTop:".8rem"}}>{`${totalDateSpend}/${response.goal}`}</p>}
                 </div>
               </div>
             </div>

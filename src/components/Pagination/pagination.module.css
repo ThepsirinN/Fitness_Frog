@@ -40,9 +40,6 @@
 }
 
 .page_btn_back button {
-    position:fixed;
-    right: 50%;
-    bottom:12rem;
     background-color: var(--red);
     color: var(--white);
     padding: 1.6rem 1.6rem;
@@ -61,11 +58,11 @@
 }
 
 .page_btn_plus {
-    position:fixed;
+    position:absolute;
     width:6rem;
 	height:6rem;
     right: 6rem;
-    bottom:12rem;
+    bottom:2rem;
     background-color: #0db88d;
     border-color: none;
     color: white;

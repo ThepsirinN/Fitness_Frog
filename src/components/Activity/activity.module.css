@@ -13,7 +13,7 @@
 
 .activity-container {
     position: relative;
-    min-height: 94.5rem;
+    min-height: 120rem;
     top: 0;
     background-image: url("./image/run.png"); 
     background-size: cover;
